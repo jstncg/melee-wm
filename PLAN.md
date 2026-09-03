@@ -20,7 +20,17 @@ A B X Y Z L R, joy_x{neg,pos}, joy_y{neg,pos}, c_x{neg,pos}, c_y{neg,pos}, trigg
 percent, stocks, x, y, direction, airborne, action_state, l_cancel
 
 ## Training (needs GPU, later)
-codec -> single-player -> 2-player (warm-start) -> eval (FID/horizon, action recoverability, counterfactual)
+codec -> WM (one perspective, 32-key both-players actions) -> eval (FID/horizon, action recoverability, counterfactual)
+
+NO 2-player warm-start stage. Verified 2026-09-03: MIRA's `n_players` counts *camera
+perspectives*, not players — `MultiWrapperWorldModel` tiles n clips into one vertically
+stacked frame (`wm_config.video.height *= n_players`). That is Rocket League (4 players,
+4 cameras). Melee is ONE shared camera, so `dataset/melee.yaml` correctly sets
+`n_players: 1` and `actions/melee.yaml` puts both players' inputs in a 32-key vocab.
+The single-perspective `LatentWorldModel` conditioned on those 32 keys IS the 2-player
+Melee world model. Do NOT use `model=multi_wrapper_world_model` — it would tile two
+copies of the same screen and double the compute for nothing. Deleting this stage saves
+one full training run (~9 h, ~$6).
 
 ## Research extras, in order
 1. Counterfactual replay: change one input at frame N, watch the alternate timeline
@@ -57,7 +67,7 @@ Hard stop: if the full WM fails the 10 s + intervention tests after two attempts
 Claim under test: a two-player world model learned from video can replace the real game for RL fine-tuning; report what fraction of the real gain it delivers.
 1. Real-game harness: slippi-ai `run_evaluator.py`, headless Dolphin, N games vs a FROZEN opponent (the strong released checkpoint). Baseline win rate + stock diff with 95% CI (200 games ~ +/-7 pts).
 2. Agent under test: the weakest released slippi-ai checkpoint (imitation-only if available), so there is headroom.
-3. State from the dream: train the WM to emit the physics record (percent, stocks, x, y, action_state) alongside latents; the shard format already carries it. Gate: on the 40 held-out real games, state error must be small (positions within a few px, action_state accuracy high) or stop before any RL spend.
+3. State from the dream. CORRECTED 2026-09-03: MIRA's WM does NOT emit state. Verified by grep — `physics` appears only in `src/mira/data/` (dataset, viz, state, physics helpers: consistency checks, frozen-clip detection, overlay badges). ZERO hits in `models/`, `training/`, `world_model/`, `codec/`, `inference/`. The shard format carrying physics is a DATA fact, not a model fact; adding state output means a new prediction head + loss + training wiring (real surgery). Cheaper path for the gate: train a small CNN state-reader on decoded frames, supervised by the 757 games of paired (frame, .npz state) already on disk — no MIRA changes. Use the reader to clear this gate; build the head only if RL actually proceeds (per-frame decoding is too slow for rollout-heavy RL). Gate unchanged: on the 40 held-out real games, state error must be small (positions within a few px, action_state accuracy high) or stop before any RL spend.
 4. Bot-in-the-dream: run the agent inside the dream via the emitted state; compare damage/min, stock rate, off-stage rate vs real Dolphin. Large gap => dream not faithful, stop.
 5. Fine-tune in the dream with slippi-ai's PPO, 5-20M frames, ~8 dreams in parallel (~160 fps). Reward = damage dealt - taken, stocks. Watch for reward hacking (dream damage/min >> real).
 6. Control arm: same agent, same frame budget, fine-tuned in real fast-forward Dolphin.
@@ -80,3 +90,13 @@ Honest framing: Melee is the checkable stand-in (real env is cheap here, the dre
 - 2026-09-02 22:55 EDT SMOKE (5090, 1,001 codec steps, bs 2, ~14 min, ~$0.25): loss 0.27 (step 150) -> 0.139 (step 1000), still falling. Held-out reconstruction PSNR 14.3 dB: dark, patchy, spatial layout roughly aligned (platforms, HUD blobs), characters not recognizable yet. Verdict: pipeline verified end to end (data, loss, checkpoint save/reload, reconstruct). Quality gate moves to 10k steps of the full run (~2 h, ~$1.50): abort if still mush. Checkpoint layout: `<out>/checkpoint-N/checkpoint.pth` (1.7 GB weights) + `training_state.pth` (3 GB). Image: bench/smoke_recon.png. HF quota ~84/100 GB: push only checkpoint.pth to HF, overwrite, every 25%.
 - 2026-09-03 03:20 EDT GATE PASSED at step 8k of the 80k codec run (secure 5090 `u7d2dbveq3i5lx`, 0.83 s/step): held-out PSNR 17.2 dB (14.3 at 1k). "Ready"/"Go!" text legible, HUD/stocks/platforms right, characters as blobs, timer digits hallucinated (06:30 vs 08:00). Run continues. Note: checkpoints are every 5% = 4000 steps; watcher fixed (watch2.sh) for pictures at 12k/40k and weight pushes at 24k/40k/60k. Image: bench/recon_8000.png.
 - 2026-09-03 11:50 EDT codec run at step 46,400/80,000, loss 0.0627, 0.84 s/step, GPU 99%. Held-out PSNR: 14.3 dB @1k -> 17.2 @8k -> 18.65 @12k -> 25.74 @40k (target was >25, hit at 40k). recon_40000.png: near-identical to source; "Ready"/"Go!"/percent/stocks/platforms/character silhouettes all correct, only the timer's small digits differ (06:00 vs 08:00). Weights pushed to HF at 24k and 40k. ETA ~18:30 EDT.
+
+## WM run decisions (2026-09-03, verified against MIRA on the pod)
+
+- **Batch size 2.** Bench: bs1 0.205, bs2 0.329, bs4 0.625 s/step, bs8 OOM. As samples/sec that is 4.88 / 6.08 / 6.40 — bs1->bs2 gains 25%, **bs2->bs4 gains only 5%** (GPU already saturated; bs4 pays 1.90x the time for 2x the work). Cost is set by TOTAL SAMPLES, not batch size: any batch reaches N samples in the same wall-clock +/-5%. bs2 chosen for OOM margin on an unattended run. MIRA's own default is `batch_size: 1, steps: 250_001`, so bs2 is already above their recipe. Do not re-litigate.
+- **Mandatory overrides.** `model=latent_world_model` hardcodes `video.width: 512` (Rocket League). Melee is 384 -> must pass `model.architecture.config.video.width=384` or the run dies. Also `codec_checkpoint` defaults to null; size is picked with `model/latent_world_model@model.architecture.config=200m` (both `1b.yaml` and `200m.yaml` are installed on the pod).
+- **Chunk math checks out.** `package.py` cuts 240 frames @ 60 fps = 4 s -> 80 frames @ 20 fps, matching MIRA's shipped chunk format. Training window is 40 frames (2 s); the eval defaults `n_context_frames: 38 + num_unrolled_frames: 20 * 2 = 78 <= 80` fit.
+- **DINO note.** Codec needs the GATED DINOv3-L/16 (`RS_DINO_WEIGHTS_DIR`). WM training does not, but `world_model_metrics` loads a DINO/Inception backbone lazily via torch.hub for drift + Frechet curves. Keep network access on the pod.
+- **Tier 1 gate risk.** The "10 s rollout" gate is 5x both the 2 s training window and MIRA's own ~2 s eval rollout. It is the most likely gate to fail; the hard-stop clause already points at it.
+- **Interactive demo has no upstream tooling.** `examples/explore.py` is a marimo DATASET VIEWER (it overlays *recorded* keyboard actions), not play-in-the-model. `src/mira/inference/rollout.py` is the stepping engine and is written with interactive-server latency in mind, but no keyboard client ships. Budget ~100 lines: key -> 32-key multi-hot -> rollout step -> decode -> display.
+- **Cost to finish Tier 1: ~$7.50 of new money** (WM 100k @ bs2 on a COMMUNITY pod $0.69/h = 9.1 h = $6.31; demo pod ~$1; offline eval marginal). ~$4 if the 45k "codec-limited" checkpoint is good enough to stop early. Use community, not secure: no network volume is needed since data comes from HF.

@@ -7,8 +7,6 @@ set -u
 LOG=/workspace/bench.log; log() { echo "$(date -u +%FT%TZ) $*" >> "$LOG"; }
 export PATH=$HOME/.pixi/bin:$HOME/.local/bin:$PATH PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 REPO=justincg/melee-fox-falcon-bf; OUT=/workspace/wm_run; STEPS=${STEPS:-100001}
-# W&B is the mid-run quality gate: the trainer logs 8 rollout videos + drift/PSNR at every val.
-WANDB_MODE=$([ -n "${WANDB_API_KEY:-}" ] && echo online || echo disabled); export WANDB_MODE
 CODEC=/workspace/codec_frozen/checkpoint.pth
 hf_up() { pixi run python -c "import os,sys; from huggingface_hub import HfApi; HfApi(token=os.environ['HF_TOKEN']).upload_file(path_or_fileobj=sys.argv[1], path_in_repo=sys.argv[2], repo_id='$REPO', repo_type='dataset'); print('up', sys.argv[2])" "$1" "$2" >> $LOG 2>&1; }
 finish() { log "FINISH $1"; hf_up /workspace/bench.log bench/wm/bench.log; hf_up /workspace/wm_run.log bench/wm/wm_run.log; runpodctl config --apiKey "$RUNPOD_API_KEY" >/dev/null 2>&1; runpodctl remove pod "$POD_ID" >> $LOG 2>&1; }
@@ -27,13 +25,33 @@ if [ ! -f $CODEC ]; then
 fi
 
 # watcher: NaN guard, weights push at 25/50/75%
+# Milestone gates. Percentages of STEPS, so they hold whatever STEPS is set to.
+# Each gate runs the offline eval on the newest checkpoint and pushes its rollout clips + numbers
+# to HF under bench/wm/gate_<step>/, so quality is reviewable without W&B.
+# Guarded on free VRAM: the eval shares the GPU with training and must never OOM it.
+gate() {
+  FREE=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -1)
+  [ "${FREE:-0}" -lt 9000 ] && { log "gate $1 deferred: only ${FREE}MiB free"; return 1; }
+  D=/workspace/gate_$1; mkdir -p $D
+  pixi run python scripts/eval_world_model_offline.py $2/checkpoint.pth \
+    --viz 2 --num-samples 32 --skip-validation --no-compile --output-dir $D >> $D/eval.log 2>&1
+  log "gate $1: $(grep -iE 'psnr|lpips|ssim|drift' $D/eval.log | tail -4 | tr '\n' ' ')"
+  for f in $(find $D -type f | head -6); do hf_up $f bench/wm/gate_$1/$(basename $f); done
+  return 0
+}
+
 # Pushes the NEWEST checkpoint every 30 min, whatever STEPS is. Do not hardcode step numbers:
 # checkpoints land every 5% of STEPS, so fixed names silently never match (that broke the codec watcher).
 ( last=""; n=0; while true; do sleep 120; n=$((n+1))
     if grep -qE "total loss nan" /workspace/wm_run.log 2>/dev/null; then log "NAN detected"; pkill -f train_world_model.py; sleep 5; finish nan; exit; fi
-    if [ $((n % 15)) = 0 ]; then
-      CK=$(ls -d $OUT/checkpoint-* 2>/dev/null | sort -V | tail -1)
-      [ -n "$CK" ] && [ -f "$CK/checkpoint.pth" ] && [ "$last" != "$CK" ] && { last=$CK; hf_up $CK/checkpoint.pth bench/wm/checkpoint.pth; log "pushed weights from $CK"; }
+    CK=$(ls -d $OUT/checkpoint-* 2>/dev/null | sort -V | tail -1)
+    if [ -n "$CK" ] && [ -f "$CK/checkpoint.pth" ]; then
+      [ $((n % 15)) = 0 ] && [ "$last" != "$CK" ] && { last=$CK; hf_up $CK/checkpoint.pth bench/wm/checkpoint.pth; log "pushed weights from $CK"; }
+      STEP=${CK##*-}
+      for pct in 10 25 50 75; do
+        T=$((STEPS * pct / 100))
+        [ "$STEP" -ge "$T" ] && [ ! -f /workspace/.gate_$pct ] && { gate $STEP "$CK" && touch /workspace/.gate_$pct; }
+      done
     fi
     pgrep -f train_world_model.py >/dev/null || exit
   done ) &
@@ -45,7 +63,7 @@ pixi run python scripts/train_world_model.py dataset=melee \
   model/latent_world_model@model.architecture.config=200m \
   model.architecture.config.codec_checkpoint=$CODEC \
   model.architecture.config.video.width=384 \
-  wandb.mode=$WANDB_MODE wandb.project=melee-wm run.compile=false \
+  wandb.mode=disabled run.compile=false \
   run.steps=$STEPS run.batch_size=2 run.checkpoint_every=5% run.checkpoint_keep_recent=2 run.log_every=1% \
   validation.val_first=false validation.val_every=5% validation.val_n_samples=64 \
   optim.scheduler.decay_steps=$((STEPS-1001)) \

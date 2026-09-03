@@ -7,6 +7,8 @@ set -u
 LOG=/workspace/bench.log; log() { echo "$(date -u +%FT%TZ) $*" >> "$LOG"; }
 export PATH=$HOME/.pixi/bin:$HOME/.local/bin:$PATH PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 REPO=justincg/melee-fox-falcon-bf; OUT=/workspace/wm_run; STEPS=${STEPS:-100001}
+# W&B is the mid-run quality gate: the trainer logs 8 rollout videos + drift/PSNR at every val.
+WANDB_MODE=$([ -n "${WANDB_API_KEY:-}" ] && echo online || echo disabled); export WANDB_MODE
 CODEC=/workspace/codec_frozen/checkpoint.pth
 hf_up() { pixi run python -c "import os,sys; from huggingface_hub import HfApi; HfApi(token=os.environ['HF_TOKEN']).upload_file(path_or_fileobj=sys.argv[1], path_in_repo=sys.argv[2], repo_id='$REPO', repo_type='dataset'); print('up', sys.argv[2])" "$1" "$2" >> $LOG 2>&1; }
 finish() { log "FINISH $1"; hf_up /workspace/bench.log bench/wm/bench.log; hf_up /workspace/wm_run.log bench/wm/wm_run.log; runpodctl config --apiKey "$RUNPOD_API_KEY" >/dev/null 2>&1; runpodctl remove pod "$POD_ID" >> $LOG 2>&1; }
@@ -25,9 +27,14 @@ if [ ! -f $CODEC ]; then
 fi
 
 # watcher: NaN guard, weights push at 25/50/75%
-( last=""; while true; do sleep 120
+# Pushes the NEWEST checkpoint every 30 min, whatever STEPS is. Do not hardcode step numbers:
+# checkpoints land every 5% of STEPS, so fixed names silently never match (that broke the codec watcher).
+( last=""; n=0; while true; do sleep 120; n=$((n+1))
     if grep -qE "total loss nan" /workspace/wm_run.log 2>/dev/null; then log "NAN detected"; pkill -f train_world_model.py; sleep 5; finish nan; exit; fi
-    for n in 25000 50000 75000; do [ -f $OUT/checkpoint-$n/checkpoint.pth ] && [ "$last" != "$n" ] && { last=$n; hf_up $OUT/checkpoint-$n/checkpoint.pth bench/wm/checkpoint.pth; log "pushed weights at $n"; }; done
+    if [ $((n % 15)) = 0 ]; then
+      CK=$(ls -d $OUT/checkpoint-* 2>/dev/null | sort -V | tail -1)
+      [ -n "$CK" ] && [ -f "$CK/checkpoint.pth" ] && [ "$last" != "$CK" ] && { last=$CK; hf_up $CK/checkpoint.pth bench/wm/checkpoint.pth; log "pushed weights from $CK"; }
+    fi
     pgrep -f train_world_model.py >/dev/null || exit
   done ) &
 
@@ -38,9 +45,9 @@ pixi run python scripts/train_world_model.py dataset=melee \
   model/latent_world_model@model.architecture.config=200m \
   model.architecture.config.codec_checkpoint=$CODEC \
   model.architecture.config.video.width=384 \
-  wandb.mode=disabled run.compile=false \
+  wandb.mode=$WANDB_MODE wandb.project=melee-wm run.compile=false \
   run.steps=$STEPS run.batch_size=2 run.checkpoint_every=5% run.checkpoint_keep_recent=2 run.log_every=1% \
-  validation.val_first=false validation.val_every=10% validation.val_n_samples=64 \
+  validation.val_first=false validation.val_every=5% validation.val_n_samples=64 \
   optim.scheduler.decay_steps=$((STEPS-1001)) \
   dataloader.num_workers=8 run.output_dir=$OUT 2>&1 | stamp >> /workspace/wm_run.log
 RC=${PIPESTATUS[0]}; log "WM RUN exit=$RC last: $(grep -E 'Step [0-9]+:' /workspace/wm_run.log | tail -1 | cut -d' ' -f2-)"

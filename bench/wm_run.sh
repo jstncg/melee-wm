@@ -40,17 +40,21 @@ gate() {
   return 0
 }
 
-# Pushes the NEWEST checkpoint every 30 min, whatever STEPS is. Do not hardcode step numbers:
-# checkpoints land every 5% of STEPS, so fixed names silently never match (that broke the codec watcher).
+# NaN guard + milestone gates. Never hardcode step numbers: checkpoints land every 5% of STEPS,
+# so fixed names silently never match (that is what broke the codec watcher).
 ( last=""; n=0; while true; do sleep 120; n=$((n+1))
     if grep -qE "total loss nan" /workspace/wm_run.log 2>/dev/null; then log "NAN detected"; pkill -f train_world_model.py; sleep 5; finish nan; exit; fi
     CK=$(ls -d $OUT/checkpoint-* 2>/dev/null | sort -V | tail -1)
     if [ -n "$CK" ] && [ -f "$CK/checkpoint.pth" ]; then
-      [ $((n % 15)) = 0 ] && [ "$last" != "$CK" ] && { last=$CK; hf_up $CK/checkpoint.pth bench/wm/checkpoint.pth; log "pushed weights from $CK"; }
       STEP=${CK##*-}
       for pct in 10 25 50 75; do
         T=$((STEPS * pct / 100))
-        [ "$STEP" -ge "$T" ] && [ ! -f /workspace/.gate_$pct ] && { gate $STEP "$CK" && touch /workspace/.gate_$pct; }
+        [ "$STEP" -ge "$T" ] && [ ! -f /workspace/.gate_$pct ] && {
+          gate $STEP "$CK" && { touch /workspace/.gate_$pct
+            # Weights ride along with the gate, NOT on a timer: every push is a new LFS blob kept in
+            # repo history, and the HF free tier is already ~84/100 GB. 4 pushes, not 18.
+            [ "$last" != "$CK" ] && { last=$CK; hf_up $CK/checkpoint.pth bench/wm/checkpoint.pth; log "pushed weights from $CK"; }; }
+        }
       done
     fi
     pgrep -f train_world_model.py >/dev/null || exit

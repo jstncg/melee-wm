@@ -42,8 +42,13 @@ gate() {
 
 # NaN guard + milestone gates. Never hardcode step numbers: checkpoints land every 5% of STEPS,
 # so fixed names silently never match (that is what broke the codec watcher).
-( last=""; n=0; while true; do sleep 120; n=$((n+1))
+( last=""; n=0; stall=0; prev=x; while true; do sleep 120; n=$((n+1))
     if grep -qE "total loss nan" /workspace/wm_run.log 2>/dev/null; then log "NAN detected"; pkill -f train_world_model.py; sleep 5; finish nan; exit; fi
+    # Stall guard: a hung dataloader leaves the process alive at 0% GPU and would burn the whole
+    # night at full price. Progress lines land every 1% (~5 min), so 30 min of no movement is dead.
+    NOW=$(grep -cE "Step [0-9]+:" /workspace/wm_run.log 2>/dev/null); NOW=${NOW:-0}
+    if [ "$NOW" = "${prev:-x}" ]; then stall=$((stall+1)); else stall=0; prev=$NOW; fi
+    if [ "$stall" -ge 15 ]; then log "STALL: no progress in 30 min at $NOW logged steps"; pkill -f train_world_model.py; sleep 5; finish stall; exit; fi
     CK=$(ls -d $OUT/checkpoint-* 2>/dev/null | sort -V | tail -1)
     if [ -n "$CK" ] && [ -f "$CK/checkpoint.pth" ]; then
       STEP=${CK##*-}

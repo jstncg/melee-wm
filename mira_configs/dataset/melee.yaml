@@ -1,0 +1,10 @@
+# Melee dataset packaged by melee-wm/data/package.py into MIRA's shard layout (one perspective).
+defaults:
+  - /actions@actions: melee
+  - _self_
+train_index: /workspace/melee/shards/train
+test_index: /workspace/melee/shards/test
+n_players: 1
+target_fps: 20
+frame_size: [288, 384]   # 4:3, multiples of 16
+exclude_replays: false

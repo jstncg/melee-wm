@@ -1,0 +1,18 @@
+# Melee codec: MIRA's RAEv2 recipe (frozen DINOv3-L/16 + strided bottleneck + ViT decoder) with a
+# smaller decoder and 288x384 4:3 frames so it trains on one 24 GB GPU.
+defaults:
+  - raev2_codec_tdown
+  - _self_
+architecture:
+  config:
+    encoder:
+      video:
+        height: 288
+        width: 384
+        channels: 3
+        timesteps: 40
+        fps: 20
+    decoder:
+      vit_width: 768
+      vit_depth: 12
+      vit_num_heads: 12

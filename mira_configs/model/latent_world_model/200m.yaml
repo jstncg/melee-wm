@@ -1,0 +1,6 @@
+# ~200M-parameter latent world model for a single 24 GB GPU.
+hidden_dim: 1024
+n_head: 16
+n_kv_head: 4
+n_layers: 16
+time_attention_every: 4

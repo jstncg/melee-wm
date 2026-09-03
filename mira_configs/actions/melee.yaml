@@ -1,0 +1,36 @@
+# Melee: both players' GameCube inputs in one 32-key vocab (one shared camera, so one "perspective").
+# Source is 60 fps; the loader ORs keys over each 3-frame window when target_fps=20.
+target_fps: 20
+valid_keys:
+  - P1_A
+  - P1_B
+  - P1_X
+  - P1_Y
+  - P1_Z
+  - P1_L
+  - P1_R
+  - P1_joy_x_neg
+  - P1_joy_x_pos
+  - P1_joy_y_neg
+  - P1_joy_y_pos
+  - P1_c_x_neg
+  - P1_c_x_pos
+  - P1_c_y_neg
+  - P1_c_y_pos
+  - P1_trigger
+  - P2_A
+  - P2_B
+  - P2_X
+  - P2_Y
+  - P2_Z
+  - P2_L
+  - P2_R
+  - P2_joy_x_neg
+  - P2_joy_x_pos
+  - P2_joy_y_neg
+  - P2_joy_y_pos
+  - P2_c_x_neg
+  - P2_c_x_pos
+  - P2_c_y_neg
+  - P2_c_y_pos
+  - P2_trigger

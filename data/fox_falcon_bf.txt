@@ -1,0 +1,889 @@
+FOX/03_44_11 [RUDE] Fox + [INFP] Captain Falcon (BF).slp
+FOX/10_39_21 Fox + [OASI] Captain Falcon (BF).slp
+FOX/11_33_05 Captain Falcon + Fox (BF).slp
+FOX/11_40_26 Captain Falcon + Fox (BF).slp
+FOX/12_08_09 Captain Falcon + Fox (BF).slp
+FOX/12_11_00 Captain Falcon + Fox (BF).slp
+FOX/12_44_12 Captain Falcon + Fox (BF).slp
+FOX/12_55_09 Fox + Captain Falcon (BF).slp
+FOX/12_56_43 Captain Falcon + Fox (BF).slp
+FOX/13_18_21 Captain Falcon + Fox (BF).slp
+FOX/13_18_44 [OASI] Captain Falcon + Fox (BF).slp
+FOX/13_19_31 Captain Falcon + Fox (BF).slp
+FOX/13_20_27 Captain Falcon + Fox (BF).slp
+FOX/13_20_57 [OASI] Captain Falcon + Fox (BF).slp
+FOX/13_23_56 Captain Falcon + Fox (BF).slp
+FOX/13_24_28 Captain Falcon + Fox (BF).slp
+FOX/13_38_42 Fox + Captain Falcon (BF).slp
+FOX/13_43_00 Fox + [OASI] Captain Falcon (BF).slp
+FOX/13_44_02 Captain Falcon + Fox (BF).slp
+FOX/13_44_55 Captain Falcon + [314] Fox (BF).slp
+FOX/13_45_32 Captain Falcon + Fox (BF).slp
+FOX/13_46_50 Captain Falcon + Fox (BF).slp
+FOX/13_46_58 Captain Falcon + [MS] Fox (BF).slp
+FOX/13_49_49 Captain Falcon + Fox (BF).slp
+FOX/13_50_58 Captain Falcon + Fox (BF).slp
+FOX/13_51_02 [C2] Captain Falcon + Fox (BF).slp
+FOX/13_51_15 [WLGY] Fox + Captain Falcon (BF).slp
+FOX/14_00_43 Captain Falcon + Fox (BF).slp
+FOX/14_08_01 Captain Falcon + Fox (BF).slp
+FOX/14_08_05 Fox + Captain Falcon (BF).slp
+FOX/14_08_19 Captain Falcon + Fox (BF).slp
+FOX/14_12_55 Fox + Captain Falcon (BF).slp
+FOX/14_15_47 Captain Falcon + Fox (BF).slp
+FOX/14_17_20 Captain Falcon + Fox (BF).slp
+FOX/14_18_42 Captain Falcon + Fox (BF).slp
+FOX/14_18_49 Fox + Captain Falcon (BF).slp
+FOX/14_21_26 Captain Falcon + [RAT] Fox (BF).slp
+FOX/14_27_02 Captain Falcon + Fox (BF).slp
+FOX/14_27_48 Captain Falcon + Fox (BF).slp
+FOX/14_34_04 [EASY] Fox + Captain Falcon (BF).slp
+FOX/14_34_27 [314] Fox + Captain Falcon (BF).slp
+FOX/14_38_53 Fox + Captain Falcon (BF).slp
+FOX/14_39_16 Fox + Captain Falcon (BF).slp
+FOX/14_39_45 Fox + [TITP] Captain Falcon (BF).slp
+FOX/14_40_13 [314] Fox + Captain Falcon (BF).slp
+FOX/14_40_43 Fox + Captain Falcon (BF).slp
+FOX/14_47_35 Captain Falcon + [314] Fox (BF).slp
+FOX/14_51_14 Captain Falcon + Fox (BF).slp
+FOX/14_51_46 Captain Falcon + Fox (BF).slp
+FOX/14_54_00 Captain Falcon + Fox (BF).slp
+FOX/14_56_40 [FABE] Fox + Captain Falcon (BF).slp
+FOX/14_57_34 Captain Falcon + Fox (BF).slp
+FOX/15_08_41 Fox + [CAPT] Captain Falcon (BF).slp
+FOX/15_11_46 Fox + [CAPT] Captain Falcon (BF).slp
+FOX/15_11_58 Fox + [QNTN] Captain Falcon (BF).slp
+FOX/15_15_56 Captain Falcon + [314] Fox (BF).slp
+FOX/15_16_02 Captain Falcon + [EASY] Fox (BF).slp
+FOX/15_17_00 Fox + Captain Falcon (BF).slp
+FOX/15_21_37 Fox + Captain Falcon (BF).slp
+FOX/15_21_44 Captain Falcon + Fox (BF).slp
+FOX/15_22_53 Fox + Captain Falcon (BF).slp
+FOX/15_42_03 [ZZZZ] Captain Falcon + [CUMB] Fox (BF).slp
+FOX/15_49_24 Captain Falcon + Fox (BF).slp
+FOX/15_50_25 Fox + Captain Falcon (BF).slp
+FOX/16_00_35 Captain Falcon + Fox (BF).slp
+FOX/16_01_43 Captain Falcon + Fox (BF).slp
+FOX/16_23_17 Fox + Captain Falcon (BF).slp
+FOX/16_23_27 [DEEP] Captain Falcon + [INFP] Fox (BF).slp
+FOX/16_23_34 Fox + Captain Falcon (BF).slp
+FOX/16_30_05 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/16_35_46 Fox + [OASI] Captain Falcon (BF).slp
+FOX/16_35_51 Captain Falcon + Fox (BF).slp
+FOX/16_35_59 Fox + Captain Falcon (BF).slp
+FOX/16_36_27 Captain Falcon + Fox (BF).slp
+FOX/16_36_42 Captain Falcon + Fox (BF).slp
+FOX/16_38_03 [AERE] Captain Falcon + Fox (BF).slp
+FOX/16_42_07 Captain Falcon + Fox (BF).slp
+FOX/16_42_34 Captain Falcon + Fox (BF).slp
+FOX/16_42_56 Fox + [OASI] Captain Falcon (BF).slp
+FOX/16_42_57 [JEKL] Captain Falcon + [HYDE] Fox (BF).slp
+FOX/16_43_26 Captain Falcon + Fox (BF).slp
+FOX/16_45_26 Fox + [OASI] Captain Falcon (BF).slp
+FOX/16_45_35 Fox + [OASI] Captain Falcon (BF).slp
+FOX/16_58_42 Captain Falcon + Fox (BF).slp
+FOX/17_04_19 Captain Falcon + Fox (BF).slp
+FOX/17_04_53 Captain Falcon + Fox (BF).slp
+FOX/17_05_08 Captain Falcon + Fox (BF).slp
+FOX/17_05_32 Captain Falcon + Fox (BF).slp
+FOX/17_09_07 Fox + Captain Falcon (BF).slp
+FOX/17_09_45 Fox + Captain Falcon (BF).slp
+FOX/17_11_10 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/17_11_42 Captain Falcon + Fox (BF).slp
+FOX/17_12_10 Captain Falcon + Fox (BF).slp
+FOX/17_12_14 Fox + Captain Falcon (BF).slp
+FOX/17_12_35 Captain Falcon + Fox (BF).slp
+FOX/17_13_04 Fox + Captain Falcon (BF).slp
+FOX/17_13_06 [OASI] Captain Falcon + [C2] Fox (BF).slp
+FOX/17_13_25 Captain Falcon + Fox (BF).slp
+FOX/17_25_44 Fox + Captain Falcon (BF).slp
+FOX/17_26_08 Captain Falcon + Fox (BF).slp
+FOX/17_29_55 Captain Falcon + Fox (BF).slp
+FOX/17_31_25 [KHAG] Fox + [314] Captain Falcon (BF).slp
+FOX/17_31_29 Captain Falcon + Fox (BF).slp
+FOX/17_32_11 Captain Falcon + Fox (BF).slp
+FOX/17_33_09 Captain Falcon + Fox (BF).slp
+FOX/17_37_55 Captain Falcon + Fox (BF).slp
+FOX/17_39_56 [C2] Fox + Captain Falcon (BF).slp
+FOX/17_53_50 [OASI] Captain Falcon + Fox (BF).slp
+FOX/17_54_31 Fox + Captain Falcon (BF).slp
+FOX/17_56_57 Captain Falcon + Fox (BF).slp
+FOX/17_56_57 Fox + [L] Captain Falcon (BF).slp
+FOX/18_06_33 Fox + Captain Falcon (BF).slp
+FOX/18_08_53 Fox + Captain Falcon (BF).slp
+FOX/18_09_15 Captain Falcon + Fox (BF).slp
+FOX/20_01_10 [ZZZZ] Captain Falcon + Fox (BF).slp
+FOX/20_01_16 Captain Falcon + Fox (BF).slp
+FOX/20_01_19 Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_01_44 [SUR] Captain Falcon + [GOTH] Fox (BF).slp
+FOX/20_02_48 Captain Falcon + Fox (BF).slp
+FOX/20_05_34 Captain Falcon + [MARS] Fox (BF).slp
+FOX/20_05_40 Fox + Captain Falcon (BF).slp
+FOX/20_13_23 [USSR] Fox + Captain Falcon (BF).slp
+FOX/20_14_06 Captain Falcon + [LI] Fox (BF).slp
+FOX/20_14_43 Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_15_55 Captain Falcon + Fox (BF).slp
+FOX/20_15_56 [OASI] Captain Falcon + Fox (BF).slp
+FOX/20_16_53 Captain Falcon + Fox (BF).slp
+FOX/20_17_07 Captain Falcon + Fox (BF).slp
+FOX/20_17_55 [USSR] Fox + Captain Falcon (BF).slp
+FOX/20_17_59 [314] Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_18_01 Fox + Captain Falcon (BF).slp
+FOX/20_18_16 Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_18_24 Fox + Captain Falcon (BF).slp
+FOX/20_18_47 [XANA] Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_18_49 Fox + Captain Falcon (BF).slp
+FOX/20_20_15 Captain Falcon + Fox (BF).slp
+FOX/20_20_49 [ZZZZ] Captain Falcon + Fox (BF).slp
+FOX/20_20_59 Captain Falcon + Fox (BF).slp
+FOX/20_21_26 [ZZZZ] Captain Falcon + [CUMB] Fox (BF).slp
+FOX/20_21_40 [H2O] Fox + Captain Falcon (BF).slp
+FOX/20_21_44 Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_21_47 Fox + Captain Falcon (BF).slp
+FOX/20_21_57 Captain Falcon + Fox (BF).slp
+FOX/20_23_16 Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_27_00 Captain Falcon + [GOTH] Fox (BF).slp
+FOX/20_27_58 Captain Falcon + [CUMB] Fox (BF).slp
+FOX/20_28_20 Fox + Captain Falcon (BF).slp
+FOX/20_29_54 Captain Falcon + [GOTH] Fox (BF).slp
+FOX/20_30_40 Captain Falcon + [HERB] Fox (BF).slp
+FOX/20_30_52 Fox + Captain Falcon (BF).slp
+FOX/20_31_12 Fox + Captain Falcon (BF).slp
+FOX/20_31_13 Fox + Captain Falcon (BF).slp
+FOX/20_37_53 Captain Falcon + [CRJ] Fox (BF).slp
+FOX/20_38_02 [H2O] Fox + [SHIG] Captain Falcon (BF).slp
+FOX/20_38_12 Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_39_06 Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_39_15 Fox + Captain Falcon (BF).slp
+FOX/20_39_33 Captain Falcon + Fox (BF).slp
+FOX/20_39_41 Captain Falcon + Fox (BF).slp
+FOX/20_39_46 Captain Falcon + Fox (BF).slp
+FOX/20_39_52 Fox + Captain Falcon (BF).slp
+FOX/20_40_07 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_40_23 Captain Falcon + [TJOM] Fox (BF).slp
+FOX/20_41_08 Captain Falcon + Fox (BF).slp
+FOX/20_41_19 [DM] Fox + Captain Falcon (BF).slp
+FOX/20_41_24 Captain Falcon + [WU] Fox (BF).slp
+FOX/20_41_39 [CUMB] Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_42_36 Fox + [C2] Captain Falcon (BF).slp
+FOX/20_42_44 Captain Falcon + Fox (BF).slp
+FOX/20_43_04 Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_43_16 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_43_19 Fox + Captain Falcon (BF).slp
+FOX/20_43_24 Captain Falcon + Fox (BF).slp
+FOX/20_43_30.723Z [WU] Fox + Captain Falcon (BF).slp
+FOX/20_43_46 [DM] Fox + Captain Falcon (BF).slp
+FOX/20_45_01 Captain Falcon + Fox (BF).slp
+FOX/20_45_27 Captain Falcon + [CUMB] Fox (BF).slp
+FOX/20_46_08 [WU] Fox + Captain Falcon (BF).slp
+FOX/20_46_13 Captain Falcon + Fox (BF).slp
+FOX/20_46_43 Captain Falcon + [LITS] Fox (BF).slp
+FOX/20_47_28 Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_47_56 Captain Falcon + Fox (BF).slp
+FOX/20_48_12 [FOX] Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_51_36 Captain Falcon + Fox (BF).slp
+FOX/20_51_41 Captain Falcon + Fox (BF).slp
+FOX/20_51_57 Captain Falcon + Fox (BF).slp
+FOX/20_52_07 [EASY] Fox + [TITP] Captain Falcon (BF).slp
+FOX/20_55_33 Fox + [OASI] Captain Falcon (BF).slp
+FOX/20_59_55 Captain Falcon + Fox (BF).slp
+FOX/21_00_53 [TON] Fox + [THUG] Captain Falcon (BF).slp
+FOX/21_02_22 Fox + Captain Falcon (BF).slp
+FOX/21_03_58 Captain Falcon + Fox (BF).slp
+FOX/21_04_46 [CWU] Fox + Captain Falcon (BF).slp
+FOX/21_06_03 [OASI] Captain Falcon + Fox (BF).slp
+FOX/21_06_04 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/21_06_10 Captain Falcon + Fox (BF).slp
+FOX/21_06_14 Fox + [OASI] Captain Falcon (BF).slp
+FOX/21_06_21 Captain Falcon + Fox (BF).slp
+FOX/21_08_39 [ZZZZ] Captain Falcon + Fox (BF).slp
+FOX/21_08_58 Captain Falcon + Fox (BF).slp
+FOX/21_09_30 Captain Falcon + Fox (BF).slp
+FOX/21_09_35 Captain Falcon + [CUMB] Fox (BF).slp
+FOX/21_09_38 Captain Falcon + Fox (BF).slp
+FOX/21_19_21 [FEAR] Fox + [OASI] Captain Falcon (BF).slp
+FOX/21_19_25 Captain Falcon + Fox (BF).slp
+FOX/21_20_02 Captain Falcon + Fox (BF).slp
+FOX/21_20_04 [314] Fox + Captain Falcon (BF).slp
+FOX/21_20_09 Captain Falcon + Fox (BF).slp
+FOX/21_22_54 Captain Falcon + Fox (BF).slp
+FOX/21_23_08 Captain Falcon + Fox (BF).slp
+FOX/21_23_21 Fox + [OASI] Captain Falcon (BF).slp
+FOX/21_23_25 Captain Falcon + Fox (BF).slp
+FOX/21_24_13 Captain Falcon + Fox (BF).slp
+FOX/21_24_32 Fox + Captain Falcon (BF).slp
+FOX/21_24_43 Captain Falcon + Fox (BF).slp
+FOX/21_25_28 Captain Falcon + Fox (BF).slp
+FOX/21_25_42 Captain Falcon + [BIF] Fox (BF).slp
+FOX/21_25_53 Fox + [HAND] Captain Falcon (BF).slp
+FOX/21_26_00 Captain Falcon + Fox (BF).slp
+FOX/21_38_58 Captain Falcon + [JAKE] Fox (BF).slp
+FOX/21_39_22 Captain Falcon + Fox (BF).slp
+FOX/21_50_56 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/21_50_58 Captain Falcon + Fox (BF).slp
+FOX/21_51_03 [DARE] Fox + Captain Falcon (BF).slp
+FOX/21_52_19 Captain Falcon + Fox (BF).slp
+FOX/21_56_22 Captain Falcon + Fox (BF).slp
+FOX/22_10_31 Captain Falcon + [WS] Fox (BF).slp
+FOX/22_20_13 Captain Falcon + Fox (BF).slp
+FOX/22_22_15 Captain Falcon + [314] Fox (BF).slp
+FOX/22_31_20 Fox + Captain Falcon (BF).slp
+FOX/22_31_45 [C2] Fox + Captain Falcon (BF).slp
+FOX/22_38_12 Fox + Captain Falcon (BF).slp
+FOX/22_42_59 [OASI] Captain Falcon + [314] Fox (BF).slp
+FOX/22_47_09 Captain Falcon + Fox (BF).slp
+FOX/22_47_54 Fox + [TITP] Captain Falcon (BF).slp
+FOX/22_51_51 Fox + Captain Falcon (BF).slp
+FOX/22_52_07 Captain Falcon + [INFP] Fox (BF).slp
+FOX/22_54_53 [=P] Captain Falcon + Fox (BF).slp
+FOX/23_16_01.325Z [SUR] Captain Falcon + Fox (BF).slp
+FOX/23_24_53 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_00/00_34_55 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/00_37_33.085Z Captain Falcon + Fox (BF).slp
+FOX/batch_00/00_41_14.124Z Captain Falcon + Fox (BF).slp
+FOX/batch_00/00_44_19.683Z Captain Falcon + Fox (BF).slp
+FOX/batch_00/00_51_50 Captain Falcon + Fox (BF).slp
+FOX/batch_00/00_52_36.243Z Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/01_03_00.101Z Captain Falcon + Fox (BF).slp
+FOX/batch_00/01_17_41 [TITP] Captain Falcon + Fox (BF).slp
+FOX/batch_00/01_19_35 [TITP] Captain Falcon + Fox (BF).slp
+FOX/batch_00/01_44_04 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/01_54_15.003Z [314] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/02_14_03.043Z [EASY] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/11_21_17 Fox + Captain Falcon (BF).slp
+FOX/batch_00/11_46_48 Captain Falcon + Fox (BF).slp
+FOX/batch_00/11_50_53 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_27_22 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_28_17 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_28_29 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_34_43 Fox + Captain Falcon (BF).slp
+FOX/batch_00/12_46_35 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_47_30 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_50_43 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/12_50_43 [NEKU] Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_51_45 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_52_26 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_52_44 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_57_28 Fox + Captain Falcon (BF).slp
+FOX/batch_00/12_58_48 Captain Falcon + Fox (BF).slp
+FOX/batch_00/12_59_37 Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_01_41 Fox + Captain Falcon (BF).slp
+FOX/batch_00/13_03_33 [C2] Captain Falcon + [DUDE] Fox (BF).slp
+FOX/batch_00/13_04_17 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/13_14_59 Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_15_44 Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_16_40 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_17_18 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/13_25_19 Fox + Captain Falcon (BF).slp
+FOX/batch_00/13_26_30 Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_30_47 Captain Falcon + [FOX] Fox (BF).slp
+FOX/batch_00/13_31_24 [L] Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_31_47 Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_34_41 Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_36_04 Captain Falcon + Fox (BF).slp
+FOX/batch_00/13_48_45 Fox + Captain Falcon (BF).slp
+FOX/batch_00/13_54_09 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/14_01_01 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/14_03_28 Fox + Captain Falcon (BF).slp
+FOX/batch_00/14_03_49 Fox + Captain Falcon (BF).slp
+FOX/batch_00/14_04_56 Fox + Captain Falcon (BF).slp
+FOX/batch_00/14_09_00 Captain Falcon + Fox (BF).slp
+FOX/batch_00/14_12_27 Fox + Captain Falcon (BF).slp
+FOX/batch_00/14_12_45 Captain Falcon + Fox (BF).slp
+FOX/batch_00/14_22_34 [GOOS] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/14_23_14 Captain Falcon + [LI] Fox (BF).slp
+FOX/batch_00/14_24_03 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/14_30_47 Captain Falcon + Fox (BF).slp
+FOX/batch_00/14_30_48 Captain Falcon + Fox (BF).slp
+FOX/batch_00/14_31_16 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/14_31_44 Captain Falcon + [RAT] Fox (BF).slp
+FOX/batch_00/14_42_03 Captain Falcon + Fox (BF).slp
+FOX/batch_00/14_43_56 Fox + Captain Falcon (BF).slp
+FOX/batch_00/14_45_51 Fox + Captain Falcon (BF).slp
+FOX/batch_00/14_46_26 Captain Falcon + Fox (BF).slp
+FOX/batch_00/14_49_26 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/14_55_09 Captain Falcon + Fox (BF).slp
+FOX/batch_00/15_13_24 [FABE] Fox + Captain Falcon (BF).slp
+FOX/batch_00/15_19_01 [WU] Fox + Captain Falcon (BF).slp
+FOX/batch_00/15_23_07 Captain Falcon + [LI] Fox (BF).slp
+FOX/batch_00/15_23_46 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/15_27_06 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/15_28_18 Fox + Captain Falcon (BF).slp
+FOX/batch_00/15_28_57 Fox + Captain Falcon (BF).slp
+FOX/batch_00/15_29_22 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/15_36_32 Captain Falcon + [FOX] Fox (BF).slp
+FOX/batch_00/15_38_02 [TTD] Captain Falcon + [CC] Fox (BF).slp
+FOX/batch_00/15_43_53 Captain Falcon + Fox (BF).slp
+FOX/batch_00/15_51_03 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_06_04 Captain Falcon + Fox (BF).slp
+FOX/batch_00/16_09_12 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_10_00 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_12_07 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/16_13_16 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_17_00 Captain Falcon + Fox (BF).slp
+FOX/batch_00/16_17_47 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_24_19 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_25_14 Captain Falcon + Fox (BF).slp
+FOX/batch_00/16_25_38 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/16_30_57 Captain Falcon + Fox (BF).slp
+FOX/batch_00/16_40_25 Captain Falcon + Fox (BF).slp
+FOX/batch_00/16_47_36 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_48_25 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_00/16_50_02 Captain Falcon + Fox (BF).slp
+FOX/batch_00/16_52_38 Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_54_24 Captain Falcon + [LOKI] Fox (BF).slp
+FOX/batch_00/16_56_13 [NELL] Fox + Captain Falcon (BF).slp
+FOX/batch_00/16_57_43 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_01_30 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/17_01_52 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_03_17 Captain Falcon + [MAC] Fox (BF).slp
+FOX/batch_00/17_07_40 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_15_18 [OASI] Captain Falcon + [C2] Fox (BF).slp
+FOX/batch_00/17_15_38 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_16_14 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/17_16_15 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_21_40 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_22_58 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_24_07 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/17_24_16 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_24_50 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_27_06 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_28_23 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_28_40 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_34_47 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_36_10 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_36_22 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_37_48 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_41_11 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_42_06 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_43_11 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_43_29 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_43_32 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_45_42 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_46_27 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_47_33 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_48_29 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_49_12 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_50_24 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_50_54 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_51_49 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_51_58 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_52_21 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_54_55 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_55_09 [CUBA] Captain Falcon + [CUMB] Fox (BF).slp
+FOX/batch_00/17_55_20 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_56_02 [BB] Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_57_12 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_57_17 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_57_32 Fox + Captain Falcon (BF).slp
+FOX/batch_00/17_58_21 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_58_36 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_58_59 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_59_06 Captain Falcon + Fox (BF).slp
+FOX/batch_00/17_59_20 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_00_47 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_01_13 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_01_25 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_01_58 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_02_09 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_02_19 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_02_31 Captain Falcon + [EASY] Fox (BF).slp
+FOX/batch_00/18_03_24 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_03_47 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_04_06 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_04_20 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_04_50 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_04_53 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_05_01 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_06_41 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_06_56 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_07_01 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_07_06 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_10_30 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_10_46 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_11_17 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_11_33 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_11_37 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_11_39 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_11_42 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_11_47 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_13_12 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_14_43 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_14_50 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_15_15 Captain Falcon + [MOSH] Fox (BF).slp
+FOX/batch_00/18_16_14 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_16_15 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_18_34 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_18_44 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_19_26 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_19_34 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_21_24 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_22_05 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_22_16 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_23_28 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_24_07 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_24_12 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_24_49 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_25_04 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_25_15 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_25_19 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_25_25 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_25_28 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_26_08 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_28_07 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_28_12 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_28_15 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_28_51 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_28_56 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_29_01 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_29_08 [KIL] Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_29_11 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_29_37 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_30_39 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_30_53 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_31_15 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_31_44 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_32_01 [314] Captain Falcon + [C2] Fox (BF).slp
+FOX/batch_00/18_32_31 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_33_12 [401K] Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_33_15 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_33_26 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_33_31 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_34_25 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_34_40 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_35_20 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_35_34 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_35_54 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_36_20 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_37_53 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_38_06 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/18_38_18 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_38_33 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_38_55 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_40_19 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_41_00 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_41_13 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_00/18_41_21 [KIL] Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_41_23 [401K] Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_42_16 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_42_19 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_00/18_42_22 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_42_27 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_42_32 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_42_51 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_43_10 Captain Falcon + [SLAY] Fox (BF).slp
+FOX/batch_00/18_43_19 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_44_03 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_44_10 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_44_27 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_44_37 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_44_42 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_44_52 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_45_23 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_45_28 [KIL] Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_45_29 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_45_49 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_46_54 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_47_02 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_47_03 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_47_14 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_47_55 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_48_18 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_48_56 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_49_05 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_49_49 [JOJO] Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_49_55 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_50_11 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_50_25 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_50_55 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_51_19 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_51_41 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_51_58 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_52_13 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_52_19 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_52_43 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_52_46 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_00/18_53_14 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_53_30 Fox + Captain Falcon (BF).slp
+FOX/batch_00/18_53_40 Captain Falcon + [NELL] Fox (BF).slp
+FOX/batch_00/18_54_01 Captain Falcon + Fox (BF).slp
+FOX/batch_00/18_54_54 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_00/18_55_46 Captain Falcon + Fox (BF).slp
+FOX/batch_01/18_56_26 Fox + Captain Falcon (BF).slp
+FOX/batch_01/18_56_51 Captain Falcon + Fox (BF).slp
+FOX/batch_01/18_57_25 Captain Falcon + Fox (BF).slp
+FOX/batch_01/18_57_32 Fox + Captain Falcon (BF).slp
+FOX/batch_01/18_57_45 Fox + Captain Falcon (BF).slp
+FOX/batch_01/18_59_33 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_00_38 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_00_52 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_01_13 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_01_28 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_02_10 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_02_45 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_02_56 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_03_02 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_03_21 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_03_25 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_03_36 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_04_02 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_05_17 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_05_41 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_06_09 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_06_59 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_07_37 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_07_46 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_07_48 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_08_47 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_08_55 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_08_58 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_09_07 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_09_22 [ZZZZ] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_09_31 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_10_34 [KILA] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_11_16 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_11_20 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_11_44 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_12_11 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_12_14 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_12_16 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_13_01 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_14_33 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_14_57 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_15_00 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_15_38 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_16_37 Captain Falcon + [UNO] Fox (BF).slp
+FOX/batch_01/19_17_49 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_18_18 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_18_33 Captain Falcon + [WYRN] Fox (BF).slp
+FOX/batch_01/19_18_57 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_19_29 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_19_38 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_19_53 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_20_27 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_20_37 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_21_17 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_21_25 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_21_43 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_21_55 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_21_57 Captain Falcon + [CUMB] Fox (BF).slp
+FOX/batch_01/19_22_01 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_22_04 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_22_07 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_22_14 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_22_31 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_22_42 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_22_48 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_23_07 [ZZZZ] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_23_11 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_23_13 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_23_54 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_24_30 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_24_41 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_25_22 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_25_39 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_25_53 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_25_55 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_26_49 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_26_51 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_26_59 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_27_06 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_27_10 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_27_21 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_28_43 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_28_53 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_29_30 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_29_40 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_30_20 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_30_23 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_30_34 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_30_38 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_31_36 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_32_14 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_32_24 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_32_35 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_32_46 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_33_15 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_33_16 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_33_21 Captain Falcon + [CRJ] Fox (BF).slp
+FOX/batch_01/19_33_25 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_33_27 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_33_46 [MDCW] Captain Falcon + [MARS] Fox (BF).slp
+FOX/batch_01/19_33_55 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_34_48 Fox + [3MLK] Captain Falcon (BF).slp
+FOX/batch_01/19_35_04 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_35_57 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_36_02 [=3] Fox + [CPT] Captain Falcon (BF).slp
+FOX/batch_01/19_36_04 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_36_15 Captain Falcon + [C2] Fox (BF).slp
+FOX/batch_01/19_36_18 Captain Falcon + [WS] Fox (BF).slp
+FOX/batch_01/19_36_22 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_36_37 Captain Falcon + [CUMB] Fox (BF).slp
+FOX/batch_01/19_37_05 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_37_05 [BYRN] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_37_18 Captain Falcon + [DEEP] Fox (BF).slp
+FOX/batch_01/19_37_28 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_37_50 [CUST] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_38_16 [314] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_39_09 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_39_14 [BYRN] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_39_21 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_39_27 [ZZZZ] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_39_32 [314] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_39_40 [BOZO] Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_39_46 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_39_49 Fox + [INFP] Captain Falcon (BF).slp
+FOX/batch_01/19_40_16 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_40_25 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_41_02 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_41_42 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_01/19_41_43 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_42_02 [NEWT] Fox + [ROBN] Captain Falcon (BF).slp
+FOX/batch_01/19_42_16 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_42_46 [MTZY] Captain Falcon + [LITS] Fox (BF).slp
+FOX/batch_01/19_42_48 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_43_18 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_43_31 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_44_09 Captain Falcon + [KHAN] Fox (BF).slp
+FOX/batch_01/19_44_10 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_44_27 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_45_25 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_45_35 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_45_41 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_45_42 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_46_11 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_47_13 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_47_33 Captain Falcon + [KHAN] Fox (BF).slp
+FOX/batch_01/19_47_57 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_48_20 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_48_27 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_48_29 [TITP] Captain Falcon + [LI] Fox (BF).slp
+FOX/batch_01/19_48_31 [314] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_48_35 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_01/19_48_50 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_50_03 Fox + [INFP] Captain Falcon (BF).slp
+FOX/batch_01/19_50_11 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_50_22 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_50_22 Captain Falcon + [SHIG] Fox (BF).slp
+FOX/batch_01/19_50_43 [NELL] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_50_51 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_52_40 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_52_57 [314] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_54_12 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_54_37 [CUBA] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_54_42 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_55_04 [314] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_01/19_55_21 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_56_08 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_56_10 [TON] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_56_15 [INFP] Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_56_52 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_56_55 [NELL] Fox + [TOMB] Captain Falcon (BF).slp
+FOX/batch_01/19_57_25 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_57_49 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_58_28 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_58_30 [INFP] Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_58_43 Captain Falcon + [XANA] Fox (BF).slp
+FOX/batch_01/19_58_45 Fox + Captain Falcon (BF).slp
+FOX/batch_01/19_59_01 Captain Falcon + Fox (BF).slp
+FOX/batch_01/19_59_13 [TITP] Captain Falcon + [LITS] Fox (BF).slp
+FOX/batch_01/19_59_49 Fox + [DEEP] Captain Falcon (BF).slp
+FOX/batch_02/20_00_15 [CPT] Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_00_46 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_01_04 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_03_09 Captain Falcon + [DARK] Fox (BF).slp
+FOX/batch_02/20_03_27 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_04_18 [LITS] Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_04_39 [GOTH] Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_04_46 [TON] Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_04_55 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_05_09 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_05_12 [TITP] Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_05_22 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_05_27 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_06_22 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_06_28 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_07_00 Captain Falcon + [LGRW] Fox (BF).slp
+FOX/batch_02/20_07_02 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_07_06 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_07_16 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_07_54 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_07_58 [TON] Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_08_12 [INFP] Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_08_29 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_09_03 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_09_09 [BERN] Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/20_09_23 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_10_11 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_10_39 Fox + [DEEP] Captain Falcon (BF).slp
+FOX/batch_02/20_10_49 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_11_26 Captain Falcon + [LITS] Fox (BF).slp
+FOX/batch_02/20_11_33 Captain Falcon + [LI] Fox (BF).slp
+FOX/batch_02/20_12_07 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_12_09 [INFP] Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_12_13 Captain Falcon + [MILO] Fox (BF).slp
+FOX/batch_02/20_12_45 [FOX] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/20_12_56 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_12_56 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_14_08 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_14_08 [INFP] Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_14_19 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_15_44 [TITP] Captain Falcon + [MAKI] Fox (BF).slp
+FOX/batch_02/20_15_46 [314] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/20_16_14 Captain Falcon + [CUMB] Fox (BF).slp
+FOX/batch_02/20_19_27 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/20_22_41 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_23_59 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_24_06 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/20_24_11 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_24_16 [INFP] Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_24_55 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_24_57 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_25_07 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_26_16 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/20_26_17 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_26_23 Captain Falcon + [CRJ] Fox (BF).slp
+FOX/batch_02/20_27_34 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_28_47 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_28_49 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_28_56 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_29_06 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_31_32 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_32_37 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_33_04 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_33_18 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_34_07 [TITP] Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_34_25 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_34_57 [EASY] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/20_35_05 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_35_49 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_36_26 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/20_36_31 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_36_37 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_44_26 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_48_52 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_49_26 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_50_38 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/20_52_43 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_53_03 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_53_07 Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/20_53_08 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_53_21 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_53_50 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_53_54 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_53_54 Fox + Captain Falcon (BF).slp
+FOX/batch_02/20_54_14 [EASY] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/20_54_47 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_54_51 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_56_35 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_56_51 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_57_48 Captain Falcon + [CRJ] Fox (BF).slp
+FOX/batch_02/20_57_55 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_58_24 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_58_25 Captain Falcon + Fox (BF).slp
+FOX/batch_02/20_58_37 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_00_41 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_00_47 Captain Falcon + [EASY] Fox (BF).slp
+FOX/batch_02/21_01_45 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_02_04 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_02_59 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_03_18 Captain Falcon + [EASY] Fox (BF).slp
+FOX/batch_02/21_06_40 [FEAR] Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_07_00 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_07_58 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_08_07 [EASY] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/21_08_10 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_09_56 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_10_07 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_10_27 [JUNK] Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_10_31 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_10_58 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_11_45 [TITP] Captain Falcon + [TJOM] Fox (BF).slp
+FOX/batch_02/21_12_26 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_12_49 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_12_54 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_13_12 Fox + [INFP] Captain Falcon (BF).slp
+FOX/batch_02/21_13_20 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_13_35 Captain Falcon + [EASY] Fox (BF).slp
+FOX/batch_02/21_14_02 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_14_36 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_15_29 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_15_30 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_16_04 [ZZZZ] Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_16_12 Fox + [INFP] Captain Falcon (BF).slp
+FOX/batch_02/21_17_33 [INFP] Fox + [SUR] Captain Falcon (BF).slp
+FOX/batch_02/21_26_40 [GUY] Captain Falcon + [JUN] Fox (BF).slp
+FOX/batch_02/21_26_46 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_28_28 [GOTH] Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_28_47 [JUNK] Fox + [314] Captain Falcon (BF).slp
+FOX/batch_02/21_29_00 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_29_01 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_29_06 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_29_37 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_30_33.721Z [RAT] Fox + [L] Captain Falcon (BF).slp
+FOX/batch_02/21_30_43 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_02/21_30_44 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_31_21 [OASI] Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_31_25 [H2O] Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_31_40 Fox + [INFP] Captain Falcon (BF).slp
+FOX/batch_02/21_32_39 Captain Falcon + [SUR] Fox (BF).slp
+FOX/batch_02/21_33_03 [31] Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_33_22 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_34_25 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_34_27 [GOTH] Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_34_46 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_02/21_34_59 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_35_04 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_35_13 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_35_19 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_35_21 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_35_27 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_36_16 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_36_55 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_39_29 [KEY] Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_39_41 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_40_27 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_42_29 Captain Falcon + [JAKE] Fox (BF).slp
+FOX/batch_02/21_42_51 [EASY] Fox + [TITP] Captain Falcon (BF).slp
+FOX/batch_02/21_43_52 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_44_24 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_44_34 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_45_09 Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_45_11 Captain Falcon + [SUR] Fox (BF).slp
+FOX/batch_02/21_45_24 Captain Falcon + [WS] Fox (BF).slp
+FOX/batch_02/21_45_37 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_46_04 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_47_24 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_48_07 [C2] Fox + [OASI] Captain Falcon (BF).slp
+FOX/batch_02/21_49_04 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_56_49 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_56_52 [314] Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_57_05 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_58_09 Fox + Captain Falcon (BF).slp
+FOX/batch_02/21_58_16 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_58_34 Captain Falcon + Fox (BF).slp
+FOX/batch_02/21_59_59 Captain Falcon + [1DER] Fox (BF).slp
+FOX/batch_02/22_00_21 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_03_12 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_05_43 [XIU] Fox + Captain Falcon (BF).slp
+FOX/batch_02/22_05_52 Captain Falcon + [NELL] Fox (BF).slp
+FOX/batch_02/22_06_10 Fox + Captain Falcon (BF).slp
+FOX/batch_02/22_06_50 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_07_06 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_09_47 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_11_39 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_11_52 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_12_14 [C2] Fox + Captain Falcon (BF).slp
+FOX/batch_02/22_12_36 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_02/22_14_25 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_15_40 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_17_17 Captain Falcon + [INFP] Fox (BF).slp
+FOX/batch_02/22_24_53 Fox + Captain Falcon (BF).slp
+FOX/batch_02/22_25_31 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_26_22 [JAKE] Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_26_23 Captain Falcon + Fox (BF).slp
+FOX/batch_02/22_28_36 [C2] Fox + Captain Falcon (BF).slp
+FOX/batch_02/23_02_32 [=P] Captain Falcon + Fox (BF).slp
+FOX/batch_02/23_08_18 Captain Falcon + [314] Fox (BF).slp
+FOX/batch_02/23_51_40 Captain Falcon + Fox (BF).slp
+FOX/batch_02/23_56_45 Captain Falcon + Fox (BF).slp

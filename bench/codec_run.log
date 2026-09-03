@@ -1,0 +1,170 @@
+1788407464.158580938  WARN the lock file is up-to-date but uses an older format (v6), run `pixi lock` to upgrade to v7 for improved reproducibility
+1788407468.675736616 [2026-09-03 03:51:08,673][__main__][INFO] - [magenta]============================================================[/magenta]
+1788407468.678457662 [2026-09-03 03:51:08,673][__main__][INFO] - [magenta]Training configuration:[/magenta]
+1788407468.680077935 [2026-09-03 03:51:08,676][__main__][INFO] - actions: ${dataset.actions}
+1788407468.681414771 wandb:
+1788407468.683890905   entity: null
+1788407468.685411448   project: mira-codec
+1788407468.687860012   name: codec
+1788407468.689174080   group: null
+1788407468.690459369   mode: disabled
+1788407468.691767331   remove_old_runs: false
+1788407468.693034609 run:
+1788407468.694325551   seed: 28
+1788407468.695972832   steps: 100001
+1788407468.697262055   batch_size: 2
+1788407468.698537673   checkpoint_every: 5%
+1788407468.699851157   checkpoint_keep_recent: 2
+1788407468.701183786   checkpoint_keep_permanent_every: -1
+1788407468.702507676   log_every: 1%
+1788407468.703802068   output_dir: /workspace/codec_run
+1788407468.705090100   compile: false
+1788407468.706392031   continue_from: null
+1788407468.708990958   finetune_from: null
+1788407468.710492947   latents_ema_decay: 0.99
+1788407468.711762910 dataloader:
+1788407468.713049765   num_workers: 8
+1788407468.714386798   shuffle_buffer_size: 100
+1788407468.715678775 validation:
+1788407468.717001721   batch_size: null
+1788407468.718292717   val_first: false
+1788407468.719612970   val_n_samples: 64
+1788407468.720917622   val_every: 10%
+1788407468.722206593 optim:
+1788407468.724673645   optimizer:
+1788407468.725921559     lr: 0.0001
+1788407468.727190576     betas:
+1788407468.728506039     - 0.9
+1788407468.729786976     - 0.95
+1788407468.731079598     weight_decay: 0.1
+1788407468.732321865   scheduler:
+1788407468.733619600     warmup_steps: 1000
+1788407468.734905516     constant_steps: 0
+1788407468.736176568     decay_steps: 99000
+1788407468.737467657     min_lr: 1.0e-06
+1788407468.738715990   model_ema_decay: 0.9999
+1788407468.741409120 model:
+1788407468.742874154   loss:
+1788407468.744183623     _target_: mira.codec.CodecLoss
+1788407468.745464630     _convert_: all
+1788407468.746733587     weights:
+1788407468.748066987       _target_: mira.codec.CodecLossWeights
+1788407468.750048386       loss_mae: 1.0
+1788407468.751524222       loss_lpips_perceptual: 1.0
+1788407468.752878299       lpips_perceptual_frame_frac: 0.25
+1788407468.753922791       loss_dino_latent_consistency: 1.0
+1788407468.754946683       dino_latent_consistency_frame_frac: 0.25
+1788407468.756015905       compile_dino: ${run.compile}
+1788407468.757740275       auto_weight: true
+1788407468.758918075   architecture:
+1788407468.759963307     _target_: mira.codec.VideoCodec
+1788407468.761374149     _convert_: all
+1788407468.763165491     config:
+1788407468.764203123       _target_: mira.codec.VideoCodecConfig
+1788407468.765249625       encoder:
+1788407468.766288322         latent_dim: 32
+1788407468.767267138         rae_model: dinov3_vitl16
+1788407468.768294948         aggregation_layers:
+1788407468.769311201         - 11
+1788407468.770364383         - 13
+1788407468.771356971         - 15
+1788407468.773054712         - 17
+1788407468.774252258         - 19
+1788407468.775233922         - 21
+1788407468.776403514         - 23
+1788407468.777417271         bottleneck:
+1788407468.778448377           stride: 2
+1788407468.779430205           temporal_stride: 2
+1788407468.780446534           noise_tau: 0.0
+1788407468.781416643         compile_dino: ${run.compile}
+1788407468.782470687         video:
+1788407468.783676768           height: 288
+1788407468.784888803           width: 384
+1788407468.785929198           channels: 3
+1788407468.786941890           timesteps: 40
+1788407468.788704460           fps: 20
+1788407468.789679766       decoder:
+1788407468.790724291         latent_dim: ${..encoder.latent_dim}
+1788407468.791708330         activation_checkpointing: true
+1788407468.792730782         bottleneck:
+1788407468.793807590           stride: ${...encoder.bottleneck.stride}
+1788407468.794827199         vit_width: 768
+1788407468.795853345         vit_depth: 12
+1788407468.796815663         vit_num_heads: 12
+1788407468.797766097         mlp_dim_multiplier: 4
+1788407468.798800776         qk_norm: layernorm
+1788407468.799824440         patch_size: 16
+1788407468.800847317         patch_size_t: 2
+1788407468.801822372         video: ${..encoder.video}
+1788407468.802842816 dataset:
+1788407468.803855483   actions:
+1788407468.804808031     target_fps: 20
+1788407468.805830414     valid_keys:
+1788407468.806841119     - P1_A
+1788407468.807883697     - P1_B
+1788407468.808946197     - P1_X
+1788407468.809914024     - P1_Y
+1788407468.810932882     - P1_Z
+1788407468.811901805     - P1_L
+1788407468.812916992     - P1_R
+1788407468.815350871     - P1_joy_x_neg
+1788407468.816498908     - P1_joy_x_pos
+1788407468.817549577     - P1_joy_y_neg
+1788407468.818548817     - P1_joy_y_pos
+1788407468.819615769     - P1_c_x_neg
+1788407468.820635837     - P1_c_x_pos
+1788407468.821665747     - P1_c_y_neg
+1788407468.822691534     - P1_c_y_pos
+1788407468.823702230     - P1_trigger
+1788407468.824723845     - P2_A
+1788407468.825728552     - P2_B
+1788407468.826753207     - P2_X
+1788407468.827716660     - P2_Y
+1788407468.828691059     - P2_Z
+1788407468.829714310     - P2_L
+1788407468.830677381     - P2_R
+1788407468.831701669     - P2_joy_x_neg
+1788407468.832779979     - P2_joy_x_pos
+1788407468.833812608     - P2_joy_y_neg
+1788407468.834823925     - P2_joy_y_pos
+1788407468.835793447     - P2_c_x_neg
+1788407468.836787653     - P2_c_x_pos
+1788407468.837808808     - P2_c_y_neg
+1788407468.838836977     - P2_c_y_pos
+1788407468.839844615     - P2_trigger
+1788407468.840831456   train_index: /workspace/melee/shards/train
+1788407468.841812223   test_index: /workspace/melee/shards/test
+1788407468.842815815   n_players: 1
+1788407468.843846403   target_fps: 20
+1788407468.844803943   frame_size:
+1788407468.845817709   - 288
+1788407468.847226339   - 384
+1788407468.848391584   exclude_replays: false
+1788407468.849357548 
+1788407469.960525497 [2026-09-03 03:51:09,957][mira.codec.dino][INFO] - Loading DINOv3 model, variant dinov3_vitl16, compile=False
+1788407472.321884594 Downloading: "https://github.com/facebookresearch/dinov3/zipball/main" to /root/.cache/torch/hub/main.zip
+1788407676.627057607 [2026-09-03 03:54:36,624][matplotlib.font_manager][INFO] - generated new fontManager
+1788407678.939033864 Downloading: "file:///workspace/melee/weights/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth" to /root/.cache/torch/hub/checkpoints/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth
+1788407679.250040685   0%|          | 0.00/1.13G [00:00<?, ?B/s] 32%|███▏      | 374M/1.13G [00:00<00:00, 3.93GB/s] 65%|██████▌   | 753M/1.13G [00:00<00:00, 3.95GB/s] 98%|█████████▊| 1.10G/1.13G [00:00<00:00, 3.95GB/s]100%|██████████| 1.13G/1.13G [00:00<00:00, 3.95GB/s]
+1788407681.124689109 Error executing job with overrides: ['model=raev2_codec_melee', 'dataset=melee', 'wandb.mode=disabled', 'run.compile=false', 'run.steps=100001', 'run.batch_size=2', 'run.checkpoint_every=5%', 'run.checkpoint_keep_recent=2', 'run.log_every=1%', 'validation.val_first=false', 'validation.val_every=10%', 'validation.val_n_samples=64', 'optim.scheduler.decay_steps=99000', 'dataloader.num_workers=8', 'run.output_dir=/workspace/codec_run']
+1788407681.126441277 Traceback (most recent call last):
+1788407681.129173240   File "/workspace/mira/scripts/train_codec.py", line 85, in train
+1788407681.130674689     raw_model.train().to(device)
+1788407681.132102072   File "/workspace/mira/.pixi/envs/default/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1369, in to
+1788407681.133370591     return self._apply(convert)
+1788407681.134686791            ^^^^^^^^^^^^^^^^^^^^
+1788407681.136138693   File "/workspace/mira/.pixi/envs/default/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+1788407681.137376655     module._apply(fn)
+1788407681.138751971   File "/workspace/mira/.pixi/envs/default/lib/python3.12/site-packages/torch/nn/modules/module.py", line 928, in _apply
+1788407681.140003674     module._apply(fn)
+1788407681.141374284   File "/workspace/mira/.pixi/envs/default/lib/python3.12/site-packages/torch/nn/modules/module.py", line 955, in _apply
+1788407681.143154663     param_applied = fn(param)
+1788407681.144395154                     ^^^^^^^^^
+1788407681.145734421   File "/workspace/mira/.pixi/envs/default/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in convert
+1788407681.147040408     return t.to(
+1788407681.148271024            ^^^^^
+1788407681.149639210   File "/workspace/mira/.pixi/envs/default/lib/python3.12/site-packages/torch/cuda/__init__.py", line 412, in _lazy_init
+1788407681.151733034     torch._C._cuda_init()
+1788407681.153249824 RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+1788407681.154465029 
+1788407681.155767156 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

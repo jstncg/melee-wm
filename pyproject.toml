@@ -1,0 +1,15 @@
+[project]
+name = "melee-wm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "huggingface-hub>=1.29.0",
+    "numpy>=2.5.2",
+    "peppi-py>=0.8.6",
+    "slp2mp4",
+]
+
+[tool.uv.sources]
+slp2mp4 = { git = "https://github.com/davisdude/slp2mp4.git" }

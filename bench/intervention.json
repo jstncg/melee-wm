@@ -1,0 +1,35 @@
+{
+  "control_mean_abs_diff": 0.0,
+  "per_second": [
+    {
+      "t": 0,
+      "diff_intervened": 0.0,
+      "diff_control": 0.0
+    },
+    {
+      "t": 1,
+      "diff_intervened": 0.0,
+      "diff_control": 0.0
+    },
+    {
+      "t": 2,
+      "diff_intervened": 0.035633064806461334,
+      "diff_control": 0.0
+    },
+    {
+      "t": 3,
+      "diff_intervened": 0.11599687486886978,
+      "diff_control": 0.0
+    },
+    {
+      "t": 4,
+      "diff_intervened": 0.057403337210416794,
+      "diff_control": 0.0
+    },
+    {
+      "t": 5,
+      "diff_intervened": 0.06356500089168549,
+      "diff_control": 0.0
+    }
+  ]
+}

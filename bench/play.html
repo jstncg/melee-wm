@@ -1,0 +1,81 @@
+<!doctype html><meta charset=utf-8><title>Melee dream</title>
+<style>
+ body{background:#111;color:#ccc;font:13px/1.5 ui-monospace,Menlo,monospace;margin:0;padding:16px}
+ canvas{image-rendering:pixelated;width:768px;height:576px;background:#000;display:block}
+ #s{margin:8px 0;white-space:pre}
+ kbd{background:#222;border:1px solid #444;border-radius:3px;padding:1px 5px}
+ table{border-collapse:collapse}td{padding:2px 10px 2px 0}
+</style>
+<canvas id=c width=384 height=288 tabindex=0></canvas>
+<div id=s>connecting…</div>
+<button onclick="ws.send(JSON.stringify({reset:1}))">reset dream</button>
+<table>
+<tr><td><kbd>← ↑ ↓ →</kbd></td><td>P1 stick</td><td><kbd>I J K L</kbd></td><td>P1 C-stick</td></tr>
+<tr><td><kbd>Z</kbd> A &nbsp; <kbd>X</kbd> B &nbsp; <kbd>C</kbd> jump</td><td></td><td><kbd>V</kbd> Z &nbsp; <kbd>Q</kbd> L &nbsp; <kbd>E</kbd> R &nbsp; <kbd>Space</kbd> trigger</td><td></td></tr>
+<tr><td><kbd>W A S D</kbd></td><td>P2 stick</td><td><kbd>1</kbd> A &nbsp; <kbd>2</kbd> B &nbsp; <kbd>3</kbd> jump</td><td>P2</td></tr>
+</table>
+<script>
+const MAP={
+ ArrowLeft:'P1_joy_x_neg',ArrowRight:'P1_joy_x_pos',ArrowDown:'P1_joy_y_neg',ArrowUp:'P1_joy_y_pos',
+ KeyZ:'P1_A',KeyX:'P1_B',KeyC:'P1_X',KeyV:'P1_Z',KeyQ:'P1_L',KeyE:'P1_R',Space:'P1_trigger',
+ KeyJ:'P1_c_x_neg',KeyL:'P1_c_x_pos',KeyK:'P1_c_y_neg',KeyI:'P1_c_y_pos',
+ KeyA:'P2_joy_x_neg',KeyD:'P2_joy_x_pos',KeyS:'P2_joy_y_neg',KeyW:'P2_joy_y_pos',
+ Digit1:'P2_A',Digit2:'P2_B',Digit3:'P2_X'};
+const down=new Set(), cv=document.getElementById('c'), ctx=cv.getContext('2d'), s=document.getElementById('s');
+addEventListener('keydown',e=>{if(MAP[e.code]){down.add(MAP[e.code]);e.preventDefault()}});
+addEventListener('keyup',  e=>{if(MAP[e.code]){down.delete(MAP[e.code]);e.preventDefault()}});
+cv.focus();
+
+const ws=new WebSocket('ws://localhost:8765'); ws.binaryType='arraybuffer';
+// The link is ~150 ms round trip and one latent takes ~70 ms to compute. Waiting for each reply
+// before sending the next input caps throughput at 1/RTT (~2.5 steps/s). Instead: send on a fixed
+// 100 ms clock (10 steps/s = 20 video fps = exactly real time) with several requests in flight, so
+// throughput is set by the GPU, not the link. The RTT becomes constant input lag, not lost frames.
+// In-flight only needs to cover the link: ceil(RTT/PERIOD) = ceil(146/100) = 2. More than that
+// is pure added lag. Likewise the display buffer: every queued frame is 50 ms you feel on every
+// press, so hold 2 and drop the rest rather than smoothing at the cost of responsiveness.
+// Sustaining R steps/s over a round trip T needs R*T requests in flight: 10/s * ~0.22 s = 2.2,
+// so 2 was below the line and throttled us to ~3.5 steps/s. 4 leaves headroom for jitter.
+// The pump ticks fast (25 ms) and rate-limits by timestamp instead: a 100 ms tick quantised every
+// send to the next tick edge, which cost more throughput than the in-flight cap did.
+const TICK=25, MIN_GAP=95, MAX_INFLIGHT=4, MAX_BUF=4;
+let lastSend=0;
+let inflight=0, frames=[], stat={}, sent=0, recvd=0, lastRx=0, rttEMA=0;
+
+ws.onopen=()=>{ s.textContent='connected'; setInterval(pump,TICK); setInterval(render,50); };
+ws.onclose=()=>{ s.textContent='disconnected'; };
+
+function pump(){
+  if(ws.readyState!==1) return;
+  if(inflight>=MAX_INFLIGHT) return;          // flow control: never outrun the GPU
+  const now=performance.now();
+  if(now-lastSend < MIN_GAP) return;          // ~10 steps/s = 20 video fps = real time
+  lastSend=now;
+  ws.send(JSON.stringify({keys:[...down],t:now}));
+  inflight++; sent++;
+}
+
+ws.onmessage=async ev=>{
+  inflight=Math.max(0,inflight-1); recvd++;
+  const dv=new DataView(ev.data);
+  const hl=dv.getUint32(0);
+  stat=JSON.parse(new TextDecoder().decode(new Uint8Array(ev.data,4,hl)));
+  const al=dv.getUint32(4+hl), o=8+hl;
+  const now=performance.now();
+  if(lastRx) rttEMA = rttEMA ? rttEMA*0.9+(now-lastRx)*0.1 : (now-lastRx);
+  lastRx=now;
+  for(const [st,len] of [[o,al],[o+al,ev.data.byteLength-o-al]])
+    frames.push(await createImageBitmap(new Blob([new Uint8Array(ev.data,st,len)])));
+  if(frames.length>MAX_BUF) frames.splice(0,frames.length-MAX_BUF);  // stay near the live edge
+};
+
+// Play the buffer out at a steady 20 fps; hold the last frame if it briefly runs dry.
+function render(){
+  const f=frames.shift();
+  if(f){ ctx.drawImage(f,0,0); f.close(); }
+  s.textContent=`dream ${stat.dream_s||0}s   step ${stat.step||0}   compute ${stat.ms||0} ms   `
+    +`buffer ${frames.length}   in-flight ${inflight}   ${(rttEMA?1000/rttEMA*2:0).toFixed(1)} fps\n`
+    +`HOLD keys - the model conditions on ~2 s of action history, so a tap is 1/20th of the signal\n`
+    +`sending: ${[...down].join(' ')||'(nothing)'}`;
+}
+</script>

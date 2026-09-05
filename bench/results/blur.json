@@ -1,0 +1,7 @@
+{
+  "REAL": 0.1015625,
+  "CODEC_roundtrip": 0.07470703125,
+  "DREAM_steps2": 0.0751953125,
+  "DREAM_steps4": 0.0830078125,
+  "DREAM_steps10": 0.126953125
+}

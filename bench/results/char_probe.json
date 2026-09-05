@@ -1,0 +1,15 @@
+{
+  "clips": 40,
+  "grid": [
+    9,
+    12
+  ],
+  "channels": 32,
+  "cells_train": 56160,
+  "cells_test": 30240,
+  "r2_pos": 0.13775110600188434,
+  "r2_pos_z": 0.14336210424248064,
+  "delta_r2": 0.005610998240596299,
+  "auc": 0.8431516817731259,
+  "verdict": "encoder discarded the characters -> no decoder fix, WM retrain needed"
+}

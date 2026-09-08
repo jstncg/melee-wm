@@ -1,139 +1,113 @@
 # melee-wm
 
-A playable neural world model of Super Smash Bros. Melee, built by running the
-[MIRA](https://github.com/mira-wm/mira) recipe on a new domain.
+A world model of Super Smash Bros. Melee, built with the [MIRA](https://github.com/mira-wm/mira)
+recipe: a DINOv3-RAE codec and a 200M-parameter latent diffusion world model with diffusion
+forcing, conditioned on both players' controller inputs as a single 32-key action stream.
 
-Fox vs Captain Falcon on Battlefield. 757 games rendered to video and packaged, 717 for training
-and 40 held out, about 36 hours in total, each paired with both players' controller inputs as a
-single 32-key action stream. A
-DINOv3-RAE codec, then a 200M-parameter latent world model with diffusion forcing. You can hold a
-controller against it.
-
-Solo, 4 days, about $69 of rented GPU.
-
-## The finding
-
-The codec reconstructs the stage, HUD and text almost perfectly, and the two fighters 9.66 dB
-worse. The information is gone at the encoder, not the decoder.
-
-![Source above, codec reconstruction below](docs/character_gap.png)
-
-Held-out clip. Top is the source, bottom is the codec round-trip. The timer, "Ready", the damage
-percentages, the platforms and the stage all survive. Both fighters are smears.
-
-On 40 held-out clips: background 26.61 dB, characters 16.95 dB, whole frame 25.61 dB. MIRA Table 7
-reports 27.6 dB whole-frame for their Base codec, so this model is roughly 2 dB behind overall and
-10 dB behind on the fighters.
-
-Three explanations, all tested and rejected:
-
-| Hypothesis | Test | Result |
-|---|---|---|
-| Characters are small | PSNR against on-screen size | 16.91 vs 16.99 dB, no size dependence |
-| Loss is swamped by 97% static background | Motion-weighted decoder fine-tune, pre-registered +0.3 dB gate | +0.17 dB, gate failed |
-| The decoder is at fault | Linear and MLP probes, latent to character location | delta R2 +0.006 and -0.003 over a position-only prior |
-
-Full working in [TIER1.md](TIER1.md). Every number quoted there has its raw output in
-`bench/results/`.
-
-Limits worth stating: one model, 200M parameters, 36 hours of video, roughly 0.4% of MIRA's
-data.
-Characters are located by motion and pooled to a coarse 9x12 latent grid. A model at MIRA's scale
-may not show this at all.
-
-## What works
-
-Gates were written into [PLAN.md](PLAN.md) before the runs, not after.
-
-| Gate | Result |
-|---|---|
-| 10 s rollout stays coherent | held 30 s on a real action stream |
-| Change an input, the future changes | control arm at exactly 0.000, then divergence |
-| Real-time playable | 66 ms median per latent, 1.39x real time |
-| A person plays it with a keyboard | `bench/play_server.py` |
+Fox vs Captain Falcon on Battlefield, trained on 717 games of Slippi replays rendered to video.
+It runs at 20 fps on one GPU with headroom, and can be played from a browser.
 
 ![Intervention: baseline above, jump input forced on below](docs/intervention.gif)
 
-Same seed, same initial noise. Top is the baseline, bottom has the jump input held from t=2 s.
-The two are identical until the intervention (mean absolute pixel difference 0.000), then diverge:
-0.036 at t=2 s, 0.116 at t=3 s.
+*Same seed and same initial noise. Top is the baseline, bottom has the jump input held from
+t=2 s. Identical until the intervention, then divergent.*
 
-Videos in [`bench/tier1_video/`](bench/tier1_video/):
+Results and the full measurement chain: [RESULTS.md](RESULTS.md). Design decisions and the
+dataset format: [DESIGN.md](DESIGN.md). Recordings in [`bench/videos/`](bench/videos/): the
+intervention pair above, a 30 s continuous rollout, and a live human-played session.
 
-* `intervention.mp4`, the clip above
-* `dream_real30s_st4_n0.0.mp4`, a 30 s continuous rollout
-* `session_191319.mp4`, a live human-played session recorded server-side at a true 20 fps
+## What works
 
-## Layout
+Each criterion was written down before the runs, not after.
 
-    PLAN.md              goals, gates, and the Tier 2 experiment design
-    TIER1.md             results and the full measurement chain
-    bench/               training, eval, and probe scripts
-      codec_audit.py       character vs background PSNR
-      ft_run.sh            motion-weighted decoder fine-tune and its gate
-      latent_probe.py      latent energy against pixel motion
-      char_probe.py        linear and MLP probes, latent to character location
-      intervention.py      controllability test with a null control
-      play_server.py       websocket server, keys in and decoded frames out
-      results/             raw output behind every number in TIER1.md
-    data/                Slippi replays to training shards
-      select_games.py      regenerate the game list from the public dataset
-      parse.py             .slp -> per-frame actions and state
-      package.py           shards in MIRA's WebDataset layout
-    render/              replays to video, on Linux under xvfb with playback Dolphin
-    bots/                slippi-ai harness for real-Dolphin evaluation
-
-## Running this yourself
-
-This is a record of a set of experiments, not a package you can install. Five things are needed,
-and two of them cannot be shipped.
-
-| Need | Where |
+| | |
 |---|---|
-| MIRA | [mira-wm/mira](https://github.com/mira-wm/mira), cloned by `bench/setup_wm.sh` |
-| Slippi replays | [erickfm/slippi-public-dataset-v3.7](https://huggingface.co/datasets/erickfm/slippi-public-dataset-v3.7), public |
-| A Melee 1.02 ISO | Not distributable. Supply your own. |
-| DINOv3-L/16 weights | Gated on Hugging Face, needs your own approved access |
-| A GPU | 32 GB VRAM. Everything here ran on one rented RTX 5090. |
+| Long rollouts | 30 s on a real action stream with no collapse |
+| Action adherence | A byte-identical control arm diffs to exactly 0.000, so divergence after a forced input is attributable to that input |
+| Speed | 66 ms median per latent at 2 diffusion steps, against a 100 ms real-time budget |
+| Interactive | Websocket server and browser client, recorded server-side at a true 20 fps |
 
-The rendered dataset is roughly 90 GB of Nintendo game footage, so it stays private. The replay
-source above is public and `data/` holds the scripts that rebuild everything from it:
-`select_games.py` regenerates the 889-game list (2-player Fox vs Captain Falcon on Battlefield),
-`download.py` fetches and parses them, and `package.py` writes MIRA's shard layout. 889 games
-match the filter, 757 of those were rendered before the render budget was called, and those became
-717 training games and 40 held out.
+## What does not work, and why
 
-Model weights live in `justincg/melee-wm-weights` on Hugging Face.
+The codec reconstructs the stage, HUD and text almost perfectly, and the two fighters 9.66 dB
+worse.
 
-Scripts in `bench/` and `render/` are written for a RunPod pod with everything under `/workspace`,
-and those paths are hardcoded. They are the scripts that produced the numbers rather than a
-general-purpose CLI, and they are committed in that form on purpose.
+![Source above, codec reconstruction below](docs/character_gap.png)
 
-`pyproject.toml` covers data preparation only. The training and eval environment is built on the
-pod by `bench/setup_wm.sh`.
+*Held-out clip, codec round-trip only. The timer, "Ready", the damage percentages and the
+platforms survive. Both fighters are smears.*
 
-## Cost
+On 40 held-out clips: background 26.61 dB, characters 16.95 dB, whole frame 25.61 dB. MIRA
+Table 7 reports 27.6 dB whole-frame for their Base codec.
 
-| Stage | Steps | Wall clock | Cost |
-|---|---|---|---|
-| Render and package 757 games | | about 1 day | $24 |
-| Codec | 80,000 | 18 h | $18 |
-| World model | 100,000 | 17 h | $10.50 |
-| Eval, probes, demo | | | $16 |
+Three explanations were tested and rejected:
 
-Per-stage figures are approximate. RunPod billing across the whole project came to about $69.
+| Hypothesis | Test | Result |
+|---|---|---|
+| The characters are small | PSNR against on-screen size | 16.91 vs 16.99 dB, no size dependence |
+| The loss is swamped by 97% static background | Motion-weighted decoder fine-tune against a +0.3 dB gate registered beforehand | +0.17 dB, gate failed |
+| The decoder is at fault | Linear and MLP probes from latents to character location | R2 gain of +0.006 and -0.003 over a position-only prior |
 
-## What I would do next, and why I stopped
+Character location is not recoverable from the latent beyond a static positional prior, so the
+encoder discards the players. No amount of further decoder or world-model training moves that
+ceiling; it needs a new encoder, which invalidates every latent and forces a world-model retrain.
 
-The next step is the transfer experiment in [PLAN.md](PLAN.md): put a slippi-ai agent inside the
-dream, fine-tune it with PPO, and measure what fraction of a real-Dolphin training gain it
-recovers, as `(dream-tuned - baseline) / (real-tuned - baseline)`, all evaluated in real Dolphin
-against a frozen opponent.
+This is one 200M model trained on 36 hours of video, roughly 0.4% of MIRA's data, and characters
+are located by motion on a coarse 9x12 latent grid. A model at MIRA's scale may not show it.
 
-Melee suits that question. Slippi gives exact per-frame action labels. There is a second
-independently controlled adversarial player, ground-truth state in the replay files, a free
-headless real environment to measure against, and skill reduces to a win rate.
+## Dataset
 
-I have not run it. Step 1 needs character state read off decoded frames, and the measurement above
-says that information is not in the latent. Fixing that means retraining the encoder, which
-invalidates the world model and costs more than this project has.
+Replays come from [erickfm/slippi-public-dataset-v3.7](https://huggingface.co/datasets/erickfm/slippi-public-dataset-v3.7).
+`data/select_games.py` filters it to 2-player Fox vs Captain Falcon games on Battlefield,
+`download.py` fetches and parses them into per-frame actions and state, `render/` plays them back
+through Slippi Dolphin under xvfb to get video, and `package.py` writes MIRA's WebDataset layout.
+
+    python data/select_games.py
+    python data/download.py
+    bash render/render_all.sh
+    python data/package.py <video_dir> <npz_dir> <out_dir>
+
+Melee has one shared camera, so `n_players: 1` and both players' inputs share a 32-key vocabulary.
+The rendered video is not redistributed here.
+
+## Training
+
+Configs are in `mira_configs/`. `bench/setup_wm.sh` builds the environment on a fresh machine,
+then:
+
+    bash bench/codec_run.sh      # codec, 80k steps
+    bash bench/wm_run.sh         # world model, 100k steps
+
+The codec needs the gated DINOv3-L/16 weights in `RS_DINO_WEIGHTS_DIR`. `model=latent_world_model`
+hardcodes a 512 px width for Rocket League, so Melee needs
+`model.architecture.config.video.width=384`.
+
+## Evaluation
+
+    python bench/codec_audit.py        # character vs background PSNR
+    python bench/char_probe.py         # linear and MLP probes on the latents
+    python bench/intervention.py       # action adherence with a null control
+    python bench/long_real.py          # 30 s rollout on a real action stream
+    python bench/speed_sweep.py        # latency against diffusion steps
+
+Raw output for every number quoted in [RESULTS.md](RESULTS.md) is in `bench/results/`.
+
+## Playing it
+
+`bench/play_server.py` steps the model one latent per message and returns decoded frames;
+`bench/play.html` is the client. Point the page at a host with `?ws=wss://host:port`, or tunnel to
+it and use the default.
+
+    python bench/play_server.py --steps 2
+
+Arrows are the P1 stick, `Z`/`X`/`C` are A/B/jump, `WASD` and `1`/`2`/`3` drive P2.
+
+## Requirements
+
+A GPU with 32 GB of VRAM, [MIRA](https://github.com/mira-wm/mira), the gated DINOv3-L/16 weights,
+and a Melee 1.02 ISO, which is not distributable. Scripts under `bench/` and `render/` assume a
+working tree at `/workspace`; they are the scripts that produced the numbers rather than a
+general-purpose CLI. `pyproject.toml` covers data preparation only, and the training environment
+is built by `bench/setup_wm.sh`.
+
+Model weights: `justincg/melee-wm-weights` on Hugging Face.

@@ -1,20 +1,22 @@
-# Tier 1: interactive Melee world model, results
+# Results
 
 Checkpoint: `justincg/melee-wm-weights`, `wm/checkpoint.pth`, step 100,000.
 Measured on the training pod (RTX 5090, EU-CZ-1) on 2026-09-04, except the character probes,
 which were run on 2026-09-05. The measurement scripts are in `bench/` and their raw output is in
 `bench/results/`.
 
-## Verdict
+## Summary
 
-The Tier 1 gates pass. The dream is controllable, runs faster than real time, and holds 30 s.
-It is not a faithful Melee simulation, and the reason is diagnosed below.
+The model is controllable, runs faster than real time, and holds a 30 s rollout without
+collapsing. It is not a faithful Melee simulation, and the reason is diagnosed below.
 
-| Gate, from PLAN.md | Result |
+Each criterion below was written down before the runs.
+
+| Criterion | Result |
 |---|---|
-| Full WM: 10 s rollout stable | Pass. Held 30 s, three times the gate, no collapse. |
-| Full WM: intervention, jump input produces a jump | Pass. See below. |
-| Demo: a person plays with a keyboard, video recorded | Pass. `bench/play_server.py` and `bench/play.html`. |
+| A 10 s rollout stays stable | Held 30 s, three times the target, no collapse |
+| A jump input produces a jump | Passes against a null control, see below |
+| A person can play it with a keyboard | `bench/play_server.py` and `bench/play.html` |
 
 ## Training
 
@@ -22,7 +24,6 @@ It is not a faithful Melee simulation, and the reason is diagnosed below.
 |---|---|
 | Steps | 100,000 of 100,001, exit 0, no retries |
 | Train / val loss | 0.3564 / 0.3573 |
-| Cost | about $10.50 |
 
 ## Offline eval at step 100k
 
@@ -234,9 +235,8 @@ append `?ws=wss://host:port`. Arrows are the P1 stick, `Z`/`X`/`C` are A/B/jump,
 `1`/`2`/`3` drive P2. Every frame is recorded server-side to `/workspace/play/session_*.mp4` at a
 true 20 fps, so the recording stays clean however laggy the link is.
 
-The pod used here was in Czechia, about 110 ms from Toronto. Compute is 66 ms, so play from
-Toronto felt like roughly 180 ms of input lag. The recording is unaffected. A US-East pod fixes
-it for about 20 minutes of setup and $1, since the weights are on Hugging Face.
+Compute is 66 ms per latent, but the network round trip adds to it, so input lag is dominated by
+distance to the host. The server-side recording is unaffected either way.
 
 ## Known ceilings
 

@@ -1,7 +1,8 @@
 """Throughput soak against the one-message-per-step protocol, pipelined like the browser does."""
-import asyncio, json, sys, time, websockets
-sys.path.insert(0, "/workspace/pyextra")
-PERIOD, MAX_INFLIGHT, N = 0.100, 2, 200
+import asyncio, json, sys, time
+sys.path.insert(0, "/workspace/pyextra")   # websockets lives here on the pod, so insert before importing it
+import websockets
+PERIOD, MAX_INFLIGHT, N = 0.100, 4, 200    # MAX_INFLIGHT matches play.html; 2 throttles to ~3.5 steps/s
 
 def script(step):
     p = step % 60

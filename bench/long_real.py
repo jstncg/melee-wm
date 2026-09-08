@@ -3,6 +3,13 @@
 Replaces the tiled-4s-loop confound in the first long-rollout test: an 8x repeated clip is an
 out-of-distribution action sequence, so degradation there was not attributable to the model.
 Chunks are 240 lines at 60 fps; the loader's 20 fps grid takes every 3rd line.
+
+KNOWN LIMITATION: the action stream is read from --match, but the context latents are seeded
+from whatever clip the shuffled loader yields, which is a different game. The actions are real
+and continuous, which is what this test set out to fix, but they are not the actions that
+produced the seeded frames. Pairing them needs the loader to select a match; until then the
+first window is conditioned on a mismatched history. The committed
+bench/stats_real30s_st4_n0.0.json was produced under this limitation.
 """
 import sys, os, io, json, time, tarfile, argparse, subprocess, torch
 sys.path.insert(0, "/workspace/pyextra"); sys.path.insert(0, "/workspace/mira/scripts")
@@ -47,6 +54,8 @@ with tarfile.open(SH) as tf:
             rows.append(v)
         c += 1
 print(f"real actions: {len(rows)} steps from {c} chunks of {a.match} ({len(rows)/20:.1f}s) need={need}", flush=True)
+print("NOTE: context latents are seeded from a shuffled loader clip, not from "
+      f"{a.match}; the action history does not match the seeded frames.", flush=True)
 assert len(rows) >= need, "not enough consecutive chunks"
 
 loader = E._build_loader(cfg, model, clip_len=80, batch_size=1, seed=7)

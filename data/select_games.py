@@ -28,7 +28,9 @@ for f in sorted(list_repo_files(REPO, repo_type="dataset")):
 if "--check" in sys.argv:
     have = [l for l in open(OUT).read().split("\n") if l]
     print(f"upstream {len(games)} games, committed list {len(have)}")
-    print("match" if set(games) == set(have) else "MISMATCH: upstream has changed")
+    if set(games) != set(have):
+        sys.exit("MISMATCH: upstream has changed; re-run without --check to regenerate")
+    print("match")
 else:
     open(OUT, "w").write("\n".join(games))
     print(f"wrote {OUT}: {len(games)} games")

@@ -57,7 +57,10 @@ function pump(){
   inflight++; sent++;
 }
 
-ws.onmessage=async ev=>{
+// createImageBitmap is async, so two overlapping handlers could resolve out of order and push
+// frames backwards. Chaining the decodes keeps them in arrival order for the cost of one promise.
+let decodeChain=Promise.resolve();
+ws.onmessage=ev=>{
   inflight=Math.max(0,inflight-1); recvd++;
   const dv=new DataView(ev.data);
   const hl=dv.getUint32(0);
@@ -66,9 +69,13 @@ ws.onmessage=async ev=>{
   const now=performance.now();
   if(lastRx) rttEMA = rttEMA ? rttEMA*0.9+(now-lastRx)*0.1 : (now-lastRx);
   lastRx=now;
-  for(const [st,len] of [[o,al],[o+al,ev.data.byteLength-o-al]])
-    frames.push(await createImageBitmap(new Blob([new Uint8Array(ev.data,st,len)])));
-  if(frames.length>MAX_BUF) frames.splice(0,frames.length-MAX_BUF);  // stay near the live edge
+  const parts=[[o,al],[o+al,ev.data.byteLength-o-al]];
+  decodeChain=decodeChain.then(async()=>{
+    for(const [st,len] of parts)
+      frames.push(await createImageBitmap(new Blob([new Uint8Array(ev.data,st,len)])));
+    // Stay near the live edge. Dropped bitmaps hold GPU memory until closed, so close them.
+    if(frames.length>MAX_BUF) for(const f of frames.splice(0,frames.length-MAX_BUF)) f.close();
+  });
 };
 
 // Play the buffer out at a steady 20 fps; hold the last frame if it briefly runs dry.

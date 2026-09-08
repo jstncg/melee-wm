@@ -150,6 +150,13 @@ mira-mini's shipped default.
 chunks of match g00000. An earlier run tiled one 4 s clip eight times, which is an
 out-of-distribution input and not a valid test.
 
+One caveat on this run, found on re-reading the script. The action stream is g00000's, but the
+context latents are seeded from whatever clip the shuffled loader yielded, which is a different
+match. So the actions are real and continuous, which is what the tiled test got wrong, but they
+are not the actions that produced the seeded frames. That makes the first window harder than it
+should be rather than easier, so the no-collapse result stands, but the pairing is a defect and
+the numbers below were measured with it present.
+
 Latent std stayed between 0.92 and 1.00, `absmax` between 3.5 and 4.5, and `dz` never approached
 0. No collapse, no blow-up, and the scene is still moving at t=29.75 s.
 
@@ -239,3 +246,10 @@ it for about 20 minutes of setup and $1, since the weights are on Hugging Face.
   passive opponent is the default unless a second player or a policy drives those 16 bits.
 * Only Fox against Falcon on Battlefield exists in the training data. Character identity is not
   an input, it is baked in.
+* `play_server.py` zeroes the whole action buffer on reset, including the slots backing the
+  seeded context latents. Those frames show real motion, so for the first window of a session,
+  and again after each re-seed, the model reads motion with an action history that says nothing
+  was pressed.
+* Recording is a single ffmpeg pipe while a session is created per connection, so two
+  simultaneous players interleave into one mp4. One player at a time is the intended use, and
+  the GPU serializes them anyway.

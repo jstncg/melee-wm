@@ -34,6 +34,9 @@ TD, ATD = model.temporal_downsampling, model.action_temporal_downsampling
 NCTX, WIN = model.n_context_latents, model.n_context_latents + 1
 KEYS = list(model.config.actions.valid_keys)
 print(f"loaded. window={WIN} latents, {TD} video frames/latent, {len(KEYS)} keys, {A.steps} steps", flush=True)
+# The wire format below is header | jpeg0 | jpeg1, and play.html unpacks exactly two. Fail here
+# with a readable message rather than inside the first handler with an unpack error.
+assert TD == 2, f"wire format sends 2 frames per latent, but this checkpoint decodes {TD}"
 
 _loader = E._build_loader(cfg, model, clip_len=80, batch_size=1, seed=7)
 _seed_batch, _ = next(iter(_loader)); _seed_batch = _seed_batch.to(DEV)
@@ -41,14 +44,26 @@ model.codec.preprocess_batch(_seed_batch)
 
 os.makedirs(A.out, exist_ok=True)
 MP4 = f"{A.out}/session_{time.strftime('%H%M%S')}.mp4"
+# rawvideo carries no geometry, so a wrong -s silently skews every frame. Take it from the clip
+# the decoder was seeded with rather than hardcoding the training resolution.
+_H, _W = _seed_batch.video.shape[-2:]
 REC = subprocess.Popen(
-    ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", "384x288", "-r", "20",
+    ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{_W}x{_H}", "-r", "20",
      "-i", "-", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", MP4],
     stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 class Dream:
-    """Holds the rolling latent buffer + streaming KV cache for one play session."""
+    """Holds the rolling latent buffer + streaming KV cache for one play session.
+
+    Two known limits, both needing a live pod to change safely:
+      * reset() zeroes the whole key_presses buffer, including the NCTX slots that back the
+        seeded context latents. Those frames show real in-game motion, so for the first WIN
+        steps of a session, and again after every re-seed, the model is told nothing was
+        pressed while it looks at motion. _seed_batch.actions.key_presses holds the real ones.
+      * REC is one module-level ffmpeg pipe while a Dream is created per connection, so two
+        simultaneous clients interleave into one mp4. Single-player is the intended use.
+    """
 
     def __init__(self):
         self.reset()

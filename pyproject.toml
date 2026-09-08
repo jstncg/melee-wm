@@ -1,7 +1,7 @@
 [project]
 name = "melee-wm"
 version = "0.1.0"
-description = "Add your description here"
+description = "Slippi replay parsing and dataset packaging for melee-wm. Training and eval run on the pod; see bench/setup_wm.sh."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

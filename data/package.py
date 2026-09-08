@@ -11,6 +11,7 @@ Usage: uv run python data/package.py <video_dir> <npz_dir> <out_dir> [--chunk 24
 import argparse
 import io
 import json
+import os
 import subprocess
 import tarfile
 import tempfile
@@ -22,7 +23,7 @@ import numpy as np
 from parse import ACTION_KEYS, STATE_COLS
 
 FPS = 60
-WORKERS = int(__import__('os').environ.get('PACKAGE_WORKERS', '16'))
+WORKERS = int(os.environ.get("PACKAGE_WORKERS", "16"))
 OUT_W, OUT_H = 384, 288  # training resolution, 4:3; the raw 642x528 dump is 4x larger
 VOCAB = [f"P{p + 1}_{k}" for p in range(2) for k in ACTION_KEYS]  # 32 keys, MIRA-style multi-hot
 
@@ -131,7 +132,7 @@ def main():
         match_id = f"g{i:05d}"  # no dots allowed in match_id
         try:
             e = package_game(tar, match_id, mp4, npz, a.chunk, a.offset)
-        except Exception as ex:  # noqa: BLE001
+        except Exception as ex:
             print(f"skip {mp4.name}: {ex}"); continue
         e["shard"] = f"shard-{shard_i:05d}.tar"; e["source"] = mp4.stem
         entries.append(e)

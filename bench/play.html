@@ -26,7 +26,9 @@ addEventListener('keydown',e=>{if(MAP[e.code]){down.add(MAP[e.code]);e.preventDe
 addEventListener('keyup',  e=>{if(MAP[e.code]){down.delete(MAP[e.code]);e.preventDefault()}});
 cv.focus();
 
-const ws=new WebSocket('ws://localhost:8765'); ws.binaryType='arraybuffer';
+// Default is the SSH tunnel; override with ?ws=wss://host:port to point at a remote pod.
+const WS_URL=new URLSearchParams(location.search).get('ws')||'ws://localhost:8765';
+const ws=new WebSocket(WS_URL); ws.binaryType='arraybuffer';
 // The link is ~150 ms round trip and one latent takes ~70 ms to compute. Waiting for each reply
 // before sending the next input caps throughput at 1/RTT (~2.5 steps/s). Instead: send on a fixed
 // 100 ms clock (10 steps/s = 20 video fps = exactly real time) with several requests in flight, so

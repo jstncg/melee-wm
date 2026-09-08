@@ -23,12 +23,12 @@ percent, stocks, x, y, direction, airborne, action_state, l_cancel
 codec -> WM (one perspective, 32-key both-players actions) -> eval (FID/horizon, action recoverability, counterfactual)
 
 NO 2-player warm-start stage. Verified 2026-09-03: MIRA's `n_players` counts *camera
-perspectives*, not players — `MultiWrapperWorldModel` tiles n clips into one vertically
+perspectives*, not players. `MultiWrapperWorldModel` tiles n clips into one vertically
 stacked frame (`wm_config.video.height *= n_players`). That is Rocket League (4 players,
 4 cameras). Melee is ONE shared camera, so `dataset/melee.yaml` correctly sets
 `n_players: 1` and `actions/melee.yaml` puts both players' inputs in a 32-key vocab.
 The single-perspective `LatentWorldModel` conditioned on those 32 keys IS the 2-player
-Melee world model. Do NOT use `model=multi_wrapper_world_model` — it would tile two
+Melee world model. Do NOT use `model=multi_wrapper_world_model`: it would tile two
 copies of the same screen and double the compute for nothing. Deleting this stage saves
 one full training run (~9 h, ~$6).
 
@@ -37,17 +37,19 @@ one full training run (~9 h, ~$6).
 2. Bot in the dream: slippi-ai inside the model vs. in real Dolphin, measure the gap
 3. Self-play RL inside the dream, test fine-tuned bot in real Dolphin
 
-## Cloud (2026-09-02)
-- RunPod pod `melee-gpu` (id 1u95fefmqmn48r): RTX 4090, 64 vCPU, 150 GB /workspace, EUR-IS-2, $0.74/h. ssh via `POD=gpu bash render/pod.sh '<cmd>'`.
-- RunPod pod `melee-render` (id bq5rsj96nrjqvo): 2 vCPU test pod, $0.06/h. Delete once GPU pod render is confirmed.
-- Network volume `melee-wm` (32zukc3iiz, CA-MTL-3, 100 GB): unused so far (MCP create-pod cannot attach it).
-- On pod: /workspace/melee/{iso,slp,video,weights,render,tools}, /workspace/mira (pixi env ready, Melee configs installed).
-- Design decision: 20 fps first (MIRA's exact recipe, loader strides 60->20). 60 fps is a later knob.
-- Overnight 2026-09-02: `render/pipeline.sh` on pod = wait render -> package (train / 40 test games) -> codec 100k steps batch 2 (batch 4 OOMs on 24 GB). Logs: render/render_all.log, render/pipeline.log, render/codec_train.log.
-- CPU test pod deleted. HF token in ~/melee-wm/.env (fine-grained, "melee").
-- 2026-09-02 08:30 UTC: measured 34 games/h on pod 1 (24 Dolphins, CPU-bound). Added pod `melee-render2` (id 1o7d9ay7okk5xg, 4090, 96 vCPU, $0.74/h, `POD=gpu2`) rendering sorted indices [250,700) via `render/render_slice.sh`; `render/sync_to_pod1.py` pushes results to pod 1 every 5 min and pulls skip markers. Delete pod 2 when its slice is done.
-- 2026-09-02 11:00 UTC: combined rate only ~55 games/h (shared hosts, CPU contention). Added pod `melee-render3` (id q45xwk3et8xy58, `POD=gpu3`) rendering [250,700) in REVERSE so it meets pod 2 in the middle; both sync to pod 1. Delete pods 2 and 3 once "render_slice done" appears in their logs.
-- 2026-09-02 13:20 EDT: STOPPED on Justin's request (RunPod balance nearly out). Spent $17.59 (3 x 4090 secure pods at $0.74/h). Pod 1 `melee-gpu` is STOPPED (not deleted): 759/889 games rendered + ISO + replays + npz + mira env on its 150 GB disk (stopped-disk billing ~$0.20/GB/mo => ~$1/day). Pods 2 and 3 deleted. To resume: start pod 1, `RENDER_PARALLEL=24 bash render/render_all.sh` finishes the last ~130 games, then `bash render/pipeline.sh`.
+## Infrastructure
+
+Everything runs on rented RunPod pods with the working tree under `/workspace`. Pods are
+disposable: data comes from Hugging Face, checkpoints are pushed back at fixed milestones, and
+nothing depends on a particular pod existing. On-pod layout is
+`/workspace/melee/{iso,slp,video,weights,render,tools}` plus `/workspace/mira`.
+
+Rendering is CPU-bound (llvmpipe under xvfb), so it was run across three pods in parallel with
+`render/render_slice.sh` and `render/sync_to_pod1.py`. 757 of 889 games were rendered; the
+remaining 132 were skipped as not worth the spend.
+
+Design decision: 20 fps first, which is MIRA's exact recipe, with the loader striding 60 to 20.
+60 fps is a later knob.
 
 ## Goals, stops, and the transfer experiment (2026-09-02)
 
@@ -67,7 +69,7 @@ Hard stop: if the full WM fails the 10 s + intervention tests after two attempts
 Claim under test: a two-player world model learned from video can replace the real game for RL fine-tuning; report what fraction of the real gain it delivers.
 1. Real-game harness: slippi-ai `run_evaluator.py`, headless Dolphin, N games vs a FROZEN opponent (the strong released checkpoint). Baseline win rate + stock diff with 95% CI (200 games ~ +/-7 pts).
 2. Agent under test: the weakest released slippi-ai checkpoint (imitation-only if available), so there is headroom.
-3. State from the dream. CORRECTED 2026-09-03: MIRA's WM does NOT emit state. Verified by grep — `physics` appears only in `src/mira/data/` (dataset, viz, state, physics helpers: consistency checks, frozen-clip detection, overlay badges). ZERO hits in `models/`, `training/`, `world_model/`, `codec/`, `inference/`. The shard format carrying physics is a DATA fact, not a model fact; adding state output means a new prediction head + loss + training wiring (real surgery). Cheaper path for the gate: train a small CNN state-reader on decoded frames, supervised by the 757 games of paired (frame, .npz state) already on disk — no MIRA changes. Use the reader to clear this gate; build the head only if RL actually proceeds (per-frame decoding is too slow for rollout-heavy RL). Gate unchanged: on the 40 held-out real games, state error must be small (positions within a few px, action_state accuracy high) or stop before any RL spend.
+3. State from the dream. CORRECTED 2026-09-03: MIRA's WM does NOT emit state. Verified by grep: `physics` appears only in `src/mira/data/` (dataset, viz, state, physics helpers: consistency checks, frozen-clip detection, overlay badges). ZERO hits in `models/`, `training/`, `world_model/`, `codec/`, `inference/`. The shard format carrying physics is a DATA fact, not a model fact; adding state output means a new prediction head + loss + training wiring (real surgery). Cheaper path for the gate: train a small CNN state-reader on decoded frames, supervised by the 757 games of paired (frame, .npz state) already on disk, with no MIRA changes. Use the reader to clear this gate; build the head only if RL actually proceeds (per-frame decoding is too slow for rollout-heavy RL). Gate unchanged: on the 40 held-out real games, state error must be small (positions within a few px, action_state accuracy high) or stop before any RL spend.
 4. Bot-in-the-dream: run the agent inside the dream via the emitted state; compare damage/min, stock rate, off-stage rate vs real Dolphin. Large gap => dream not faithful, stop.
 5. Fine-tune in the dream with slippi-ai's PPO, 5-20M frames, ~8 dreams in parallel (~160 fps). Reward = damage dealt - taken, stocks. Watch for reward hacking (dream damage/min >> real).
 6. Control arm: same agent, same frame budget, fine-tuned in real fast-forward Dolphin.
@@ -93,7 +95,7 @@ Honest framing: Melee is the checkable stand-in (real env is cheap here, the dre
 
 ## WM run decisions (2026-09-03, verified against MIRA on the pod)
 
-- **Batch size 2.** Bench: bs1 0.205, bs2 0.329, bs4 0.625 s/step, bs8 OOM. As samples/sec that is 4.88 / 6.08 / 6.40 — bs1->bs2 gains 25%, **bs2->bs4 gains only 5%** (GPU already saturated; bs4 pays 1.90x the time for 2x the work). Cost is set by TOTAL SAMPLES, not batch size: any batch reaches N samples in the same wall-clock +/-5%. bs2 chosen for OOM margin on an unattended run. MIRA's own default is `batch_size: 1, steps: 250_001`, so bs2 is already above their recipe. Do not re-litigate.
+- **Batch size 2.** Bench: bs1 0.205, bs2 0.329, bs4 0.625 s/step, bs8 OOM. As samples/sec that is 4.88 / 6.08 / 6.40. bs1->bs2 gains 25%, **bs2->bs4 gains only 5%** (GPU already saturated; bs4 pays 1.90x the time for 2x the work). Cost is set by TOTAL SAMPLES, not batch size: any batch reaches N samples in the same wall-clock +/-5%. bs2 chosen for OOM margin on an unattended run. MIRA's own default is `batch_size: 1, steps: 250_001`, so bs2 is already above their recipe. Do not re-litigate.
 - **Mandatory overrides.** `model=latent_world_model` hardcodes `video.width: 512` (Rocket League). Melee is 384 -> must pass `model.architecture.config.video.width=384` or the run dies. Also `codec_checkpoint` defaults to null; size is picked with `model/latent_world_model@model.architecture.config=200m` (both `1b.yaml` and `200m.yaml` are installed on the pod).
 - **Chunk math checks out.** `package.py` cuts 240 frames @ 60 fps = 4 s -> 80 frames @ 20 fps, matching MIRA's shipped chunk format. Training window is 40 frames (2 s); the eval defaults `n_context_frames: 38 + num_unrolled_frames: 20 * 2 = 78 <= 80` fit.
 - **DINO note.** Codec needs the GATED DINOv3-L/16 (`RS_DINO_WEIGHTS_DIR`). WM training does not, but `world_model_metrics` loads a DINO/Inception backbone lazily via torch.hub for drift + Frechet curves. Keep network access on the pod.
